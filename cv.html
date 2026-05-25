@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Janny Vũ — CV | SEO Specialist & Organic Growth Strategist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark:   #0d0120;
+      --dark2:  #1a0535;
+      --purple: #7e22ce;
+      --p-400:  #c084fc;
+      --p-500:  #a855f7;
+      --p-600:  #9333ea;
+      --p-light:#f3e8ff;
+      --p-pale: #faf5ff;
+      --amber:  #d97706;
+      --amber-l:#fef3c7;
+      --text:   #1e0a3c;
+      --muted:  #6b7280;
+      --white:  #ffffff;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ddd6fe;
+      color: var(--text);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    h1,h2,h3,h4 { font-family: 'Syne', sans-serif; }
+
+    /* ── PRINT HINT ── */
+    .print-bar {
+      background: var(--dark); color: rgba(255,255,255,0.75);
+      text-align: center; padding: 0.7rem 1rem;
+      font-size: 0.78rem; display: flex; align-items: center;
+      justify-content: center; gap: 1rem;
+    }
+    .print-bar a {
+      color: var(--p-400); text-decoration: none; font-weight: 600;
+    }
+    .btn-print {
+      background: var(--p-600); color: white; border: none;
+      padding: 0.4rem 1.4rem; border-radius: 20px;
+      font-size: 0.78rem; font-weight: 600; cursor: pointer;
+      font-family: 'Inter', sans-serif; transition: background 0.2s;
+    }
+    .btn-print:hover { background: var(--purple); }
+
+    /* ── CV WRAPPER (A4) ── */
+    .cv {
+      width: 210mm;
+      background: white;
+      margin: 16px auto;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ════════════════════════════
+       HEADER
+    ════════════════════════════ */
+    .cv-header {
+      background: linear-gradient(135deg, #0d0120 0%, #1a0535 55%, #2e0a60 100%);
+      padding: 1.8rem 2rem;
+      display: flex; align-items: center; gap: 1.6rem;
+      position: relative; overflow: hidden;
+    }
+    .cv-header::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    /* nebula blobs in header */
+    .cv-header::after {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 260px 160px at 10% 50%, rgba(147,51,234,0.3) 0%, transparent 70%),
+        radial-gradient(ellipse 200px 180px at 85% 20%, rgba(6,182,212,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 180px 140px at 70% 90%, rgba(236,72,153,0.18) 0%, transparent 70%);
+    }
+
+    .cv-photo {
+      position: relative; z-index: 1; flex-shrink: 0;
+      width: 80px; height: 80px; border-radius: 50%;
+      border: 2.5px solid rgba(192,132,252,0.65);
+      background: linear-gradient(135deg, var(--p-400), var(--purple));
+      overflow: hidden;
+      box-shadow: 0 0 0 5px rgba(192,132,252,0.15);
+    }
+    .cv-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+      display: block;
+    }
+
+    .cv-header-mid {
+      position: relative; z-index: 1; flex: 1;
+    }
+    .cv-name {
+      font-size: 2rem; font-weight: 800; color: white;
+      line-height: 1; letter-spacing: -0.02em; margin-bottom: 0.22rem;
+    }
+    .cv-title {
+      font-size: 0.82rem; font-weight: 600;
+      color: var(--p-400); letter-spacing: 0.05em; margin-bottom: 0.9rem;
+    }
+    .cv-metrics {
+      display: flex; gap: 1.5rem;
+    }
+    .cv-m-val {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.15rem; font-weight: 800; color: white; line-height: 1;
+    }
+    .cv-m-lbl {
+      font-size: 0.55rem; color: rgba(255,255,255,0.45);
+      text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.1rem;
+    }
+
+    .cv-header-contact {
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column; gap: 0.35rem;
+      align-self: flex-start; padding-top: 0.2rem;
+    }
+    .ci {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.7rem; color: rgba(255,255,255,0.65);
+    }
+    .ci a { color: rgba(255,255,255,0.65); text-decoration: none; }
+    .ci a:hover { color: white; }
+    .ci-icon {
+      width: 16px; height: 16px; border-radius: 50%;
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.55rem; flex-shrink: 0;
+    }
+
+    /* ════════════════════════════
+       BODY (sidebar + main)
+    ════════════════════════════ */
+    .cv-body {
+      display: grid;
+      grid-template-columns: 68mm 1fr;
+      flex: 1;
+    }
+
+    /* ── LEFT SIDEBAR ── */
+    .cv-left {
+      background: var(--p-pale);
+      padding: 1.5rem 1.3rem;
+      border-right: 1px solid var(--p-light);
+    }
+
+    /* ── RIGHT MAIN ── */
+    .cv-right {
+      padding: 1.5rem 1.7rem;
+    }
+
+    /* ── Section label ── */
+    .sec-lbl {
+      font-size: 0.58rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.17em;
+      color: var(--p-600);
+      display: flex; align-items: center; gap: 0.45rem;
+      margin-bottom: 0.85rem;
+    }
+    .sec-lbl::after {
+      content: ''; flex: 1; height: 1.5px;
+      background: linear-gradient(to right, var(--p-400), transparent);
+    }
+
+    .cv-divider {
+      height: 1px; background: var(--p-light); margin: 1.1rem 0;
+    }
+
+    /* ════════ LEFT: KEY RESULTS ════════ */
+    .kpi-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem;
+      margin-bottom: 0;
+    }
+    .kpi-card {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
+      border-radius: 9px; padding: 0.6rem 0.75rem;
+      border: 1px solid rgba(192,132,252,0.2);
+    }
+    .kpi-val {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem; font-weight: 800; color: var(--p-400); line-height: 1;
+    }
+    .kpi-lbl {
+      font-size: 0.56rem; color: rgba(255,255,255,0.45);
+      margin-top: 0.18rem; line-height: 1.3;
+    }
+
+    /* ════════ LEFT: SKILLS ════════ */
+    .skill-block { margin-bottom: 0.8rem; }
+    .skill-block-title {
+      font-size: 0.62rem; font-weight: 700; color: var(--purple);
+      text-transform: uppercase; letter-spacing: 0.1em;
+      margin-bottom: 0.42rem;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+    .tag {
+      font-size: 0.62rem; color: var(--purple); font-weight: 500;
+      background: var(--p-light); padding: 0.22rem 0.62rem;
+      border-radius: 20px; border: 1px solid rgba(168,85,247,0.25);
+      line-height: 1.4;
+    }
+    .tag.amber {
+      color: var(--amber); background: var(--amber-l);
+      border-color: rgba(245,158,11,0.3);
+    }
+
+    /* ════════ LEFT: HIGHLIGHTS ════════ */
+    .hl-list { display: flex; flex-direction: column; gap: 0.4rem; }
+    .hl-item {
+      display: flex; align-items: flex-start; gap: 0.5rem;
+      font-size: 0.68rem; color: #444; line-height: 1.5;
+    }
+    .hl-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--p-400); flex-shrink: 0; margin-top: 0.28rem;
+    }
+    .hl-item strong { color: var(--purple); }
+
+    /* ════════ RIGHT: SUMMARY ════════ */
+    .cv-summary {
+      font-size: 0.76rem; color: #444; line-height: 1.8;
+      margin-bottom: 1.2rem;
+    }
+    .cv-summary strong { color: var(--purple); font-weight: 600; }
+
+    /* ════════ RIGHT: EXPERIENCE ════════ */
+    .exp-item { margin-bottom: 1.1rem; }
+    .exp-item:last-child { margin-bottom: 0; }
+
+    .exp-top {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; gap: 0.5rem;
+      margin-bottom: 0.1rem;
+    }
+    .exp-role {
+      font-size: 0.84rem; font-weight: 700; color: var(--text);
+      font-family: 'Syne', sans-serif;
+    }
+    .exp-badge {
+      font-size: 0.58rem; font-weight: 700; color: white;
+      background: var(--purple); padding: 0.14rem 0.6rem;
+      border-radius: 20px; white-space: nowrap; flex-shrink: 0;
+      letter-spacing: 0.03em;
+    }
+    .exp-badge.current { background: var(--amber); }
+
+    .exp-co {
+      font-size: 0.7rem; color: var(--p-600); font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+    .exp-co span {
+      color: var(--muted); font-weight: 400; margin-left: 0.3rem;
+    }
+
+    .exp-list { list-style: none; }
+    .exp-list li {
+      font-size: 0.72rem; color: #4b5563; line-height: 1.6;
+      padding-left: 0.85rem; position: relative;
+      margin-bottom: 0.12rem;
+    }
+    .exp-list li::before {
+      content: '✦'; position: absolute; left: 0;
+      color: var(--p-400); font-size: 0.48rem; top: 0.3rem;
+    }
+    .exp-list li strong { color: var(--amber); font-weight: 700; }
+
+    /* ════════════════════════════
+       PRINT
+    ════════════════════════════ */
+    @media print {
+      body { background: white; }
+      .print-bar { display: none; }
+      .cv { margin: 0; box-shadow: none; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- PRINT BAR -->
+<div class="print-bar">
+  <span>Janny Vũ — CV &nbsp;|&nbsp; Lưu file: Ctrl+P → Save as PDF</span>
+  <button class="btn-print" onclick="window.print()">🖨 In / Lưu PDF</button>
+  <a href="index.html">← Portfolio</a>
+</div>
+
+<!-- CV -->
+<div class="cv">
+
+  <!-- ══ HEADER ══ -->
+  <header class="cv-header">
+    <div class="cv-photo">
+      <img src="photo.png" alt="Janny Vũ">
+    </div>
+
+    <div class="cv-header-mid">
+      <h1 class="cv-name">Janny Vũ</h1>
+      <div class="cv-title">SEO Specialist &amp; Organic Growth Strategist</div>
+      <div class="cv-metrics">
+        <div><div class="cv-m-val">4+</div><div class="cv-m-lbl">Years Exp.</div></div>
+        <div><div class="cv-m-val">1M+</div><div class="cv-m-lbl">Monthly Traffic</div></div>
+        <div><div class="cv-m-val">15+</div><div class="cv-m-lbl">Websites Built</div></div>
+        <div><div class="cv-m-val">6</div><div class="cv-m-lbl">Industries</div></div>
+      </div>
+    </div>
+
+    <div class="cv-header-contact">
+      <div class="ci"><div class="ci-icon">📞</div><a href="tel:0522933064">0522 933 064</a></div>
+      <div class="ci"><div class="ci-icon">✉</div><a href="mailto:jannyvu14100@gmail.com">jannyvu14100@gmail.com</a></div>
+      <div class="ci"><div class="ci-icon">in</div><a href="https://linkedin.com/in/janny-vu">linkedin.com/in/janny-vu</a></div>
+      <div class="ci"><div class="ci-icon">🌐</div><a href="https://jannyvu.github.io/home/">jannyvu.github.io/home</a></div>
+      <div class="ci"><div class="ci-icon">📍</div>District 1, Ho Chi Minh City</div>
+    </div>
+  </header>
+
+  <!-- ══ BODY ══ -->
+  <div class="cv-body">
+
+    <!-- ── LEFT SIDEBAR ── -->
+    <aside class="cv-left">
+
+      <div class="sec-lbl">Key Results</div>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-val">1.06M</div>
+          <div class="kpi-lbl">Impressions — Love's Auto Detail</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val">13.4K</div>
+          <div class="kpi-lbl">Clicks in 16 months</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val">600%</div>
+          <div class="kpi-lbl">Traffic Growth — Get Freebies Today</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val">$10K+</div>
+          <div class="kpi-lbl">Affiliate Revenue in 6 months</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val">$7K+</div>
+          <div class="kpi-lbl">Monthly Revenue — Toolmart (Mo.3)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val">360K</div>
+          <div class="kpi-lbl">Impressions — Kenwood CPA</div>
+        </div>
+      </div>
+
+      <div class="cv-divider"></div>
+
+      <div class="sec-lbl">SEO Skills</div>
+      <div class="skill-block">
+        <div class="skill-block-title">Core SEO</div>
+        <div class="tags">
+          <span class="tag">On-page SEO</span>
+          <span class="tag">Off-page SEO</span>
+          <span class="tag">Technical SEO</span>
+          <span class="tag">Local SEO</span>
+          <span class="tag">International SEO</span>
+          <span class="tag">Content Strategy</span>
+          <span class="tag">Keyword Research</span>
+          <span class="tag">Link Building</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-block-title">Tools</div>
+        <div class="tags">
+          <span class="tag">Google Search Console</span>
+          <span class="tag">GA4</span>
+          <span class="tag">Ahrefs</span>
+          <span class="tag">SEMrush</span>
+          <span class="tag">Screaming Frog</span>
+          <span class="tag">SurferSEO</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-block-title">Technical & Other</div>
+        <div class="tags">
+          <span class="tag">WordPress</span>
+          <span class="tag">Elementor</span>
+          <span class="tag amber">AI Workflows</span>
+          <span class="tag amber">Team Management</span>
+          <span class="tag">Canva</span>
+        </div>
+      </div>
+
+      <div class="cv-divider"></div>
+
+      <div class="sec-lbl">Additional Experience</div>
+      <div class="hl-list">
+        <div class="hl-item">
+          <div class="hl-dot"></div>
+          <span>Built <strong>15+ WordPress / Elementor</strong> websites for US-based clients</span>
+        </div>
+        <div class="hl-item">
+          <div class="hl-dot"></div>
+          <span>Managed <strong>4 TikTok affiliate channels</strong> — 5,000+ followers in 2 months</span>
+        </div>
+        <div class="hl-item">
+          <div class="hl-dot"></div>
+          <span>Event planning: Team Building &amp; Gala Dinner, International Women's Day, Online Marathon</span>
+        </div>
+      </div>
+
+      <div class="cv-divider"></div>
+
+      <div class="sec-lbl">Languages</div>
+      <div class="tags">
+        <span class="tag">Vietnamese — Native</span>
+        <span class="tag">English — Professional</span>
+      </div>
+
+    </aside>
+
+    <!-- ── RIGHT MAIN ── -->
+    <main class="cv-right">
+
+      <div class="sec-lbl">Professional Summary</div>
+      <p class="cv-summary">
+        SEO professional with <strong>4+ years of experience</strong> driving organic growth across finance, affiliate, local, and e-commerce markets globally. Proven track record achieving <strong>1M+ monthly impressions</strong>, 600% traffic growth, and $10K+ affiliate revenue within 6 months. Experienced in <strong>building and leading SEO teams</strong>, transitioning from agency-based to in-house operations, and developing <strong>AI-driven content workflows</strong> for scalable, sustainable growth.
+      </p>
+
+      <div class="sec-lbl">Work Experience</div>
+
+      <!-- 01 -->
+      <div class="exp-item">
+        <div class="exp-top">
+          <div class="exp-role">SEO Team Lead</div>
+          <div class="exp-badge current">Dec 2025 — Present</div>
+        </div>
+        <div class="exp-co">WeCopyTrade <span>· FinTech / Copy Trading Platform</span></div>
+        <ul class="exp-list">
+          <li>Leading SEO strategy and execution across <strong>multiple international markets</strong></li>
+          <li>Managing and mentoring SEO team; overseeing content quality and campaign performance</li>
+          <li>Building <strong>AI-driven workflows</strong> for content research, brief creation, and task management</li>
+          <li>Reporting on organic KPIs via Google Search Console, GA4, and Ahrefs</li>
+        </ul>
+      </div>
+
+      <!-- 02 -->
+      <div class="exp-item">
+        <div class="exp-top">
+          <div class="exp-role">SEO Specialist</div>
+          <div class="exp-badge">Aug — Dec 2025</div>
+        </div>
+        <div class="exp-co">WeCopyTrade <span>· FinTech / Copy Trading Platform</span></div>
+        <ul class="exp-list">
+          <li>Managed and evaluated global SEO agencies; selected partners based on strategy and ROI fit</li>
+          <li>Led transition from <strong>external agencies to in-house SEO team</strong>, reducing costs and improving scalability</li>
+        </ul>
+      </div>
+
+      <!-- 03 -->
+      <div class="exp-item">
+        <div class="exp-top">
+          <div class="exp-role">SEO Specialist</div>
+          <div class="exp-badge">June 2024 — Aug 2025</div>
+        </div>
+        <div class="exp-co">Detailers Movement International <span>· US Auto Detailing Industry</span></div>
+        <ul class="exp-list">
+          <li>Managed local SEO for multiple US-based car detailing clients</li>
+          <li>Love's Auto Detail: <strong>13.4K clicks &amp; 1.06M impressions</strong> in 16 months from local SEO optimization</li>
+          <li>Wax Masters Detailing: <strong>1.17K clicks, 136K impressions</strong> — built from zero to competitive rankings</li>
+        </ul>
+      </div>
+
+      <!-- 04 -->
+      <div class="exp-item">
+        <div class="exp-top">
+          <div class="exp-role">SEO - Marketing Executive</div>
+          <div class="exp-badge">June 2023 — May 2024</div>
+        </div>
+        <div class="exp-co">Thami Shipping &amp; Airfreight Corp. <span>· International Logistics</span></div>
+        <ul class="exp-list">
+          <li>Planned and executed all on-page SEO tasks; achieved <strong>top rankings</strong> for informational keywords driving significant organic traffic</li>
+          <li>Created design assets and company introduction videos for sales team client pitches</li>
+        </ul>
+      </div>
+
+      <!-- 05 -->
+      <div class="exp-item">
+        <div class="exp-top">
+          <div class="exp-role">SEO Executive</div>
+          <div class="exp-badge">Apr 2022 — May 2023</div>
+        </div>
+        <div class="exp-co">Interate Corp. <span>· Affiliate &amp; Content Marketing</span></div>
+        <ul class="exp-list">
+          <li>Grew Get Freebies Today organic traffic by <strong>600%</strong> — generated 2,000+ leads &amp; <strong>$10K+ revenue in 6 months</strong></li>
+          <li>Supported Health Canal reaching <strong>1M average monthly visitors</strong> via off-page SEO and content strategy</li>
+          <li>Managed SEO optimization and content planning across multiple affiliate niches</li>
+        </ul>
+      </div>
+
+      <!-- 06 -->
+      <div class="exp-item">
+        <div class="exp-top">
+          <div class="exp-role">SEO Off-page Collaborator</div>
+          <div class="exp-badge">Dec 2021 — Feb 2022</div>
+        </div>
+        <div class="exp-co">Astronet Media <span>· Content &amp; Authority Building</span></div>
+        <ul class="exp-list">
+          <li>Executed backlink acquisition campaigns; outreach to niche website owners for guest posts and sponsored links</li>
+          <li>Negotiated pricing and partnership terms; supported authority-building for large-scale content sites</li>
+        </ul>
+      </div>
+
+    </main>
+  </div><!-- /cv-body -->
+
+</div><!-- /cv -->
+
+</body>
+</html>
