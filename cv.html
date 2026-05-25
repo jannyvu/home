@@ -52,24 +52,47 @@
       font-family: 'Inter', sans-serif;
     }
 
-    /* ── CV PAGE ── */
+    /* ── CV WRAPPER ── */
     .cv {
       width: 210mm;
-      background: white;
       margin: 14px auto;
-      box-shadow: 0 8px 40px rgba(139,92,246,0.2);
+    }
+
+    /* ── CV PAGE (each = 1 A4 page) ── */
+    .cv-page {
+      width: 210mm;
+      min-height: 297mm;
+      background: white;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media screen {
+      .cv-page {
+        box-shadow: 0 8px 40px rgba(139,92,246,0.2);
+        margin-bottom: 18px;
+      }
+    }
+
+    @media print {
+      body { background: white; }
+      .print-bar { display: none; }
+      .cv { margin: 0; width: 100%; }
+      .cv-page { box-shadow: none; width: 100%; }
+      .cv-page-1 { page-break-after: always; break-after: page; }
+      @page { margin: 0; size: A4; }
     }
 
     /* ══════════════════════════════
-       HEADER — light purple gradient
+       PAGE 1 — FULL HEADER
     ══════════════════════════════ */
     .cv-header {
       background: linear-gradient(135deg, #ddb6f5 0%, #c084fc 40%, #9b59d0 72%, #7e22ce 100%);
-      padding: 1.6rem 1.8rem;
+      padding: 1.5rem 1.8rem;
       display: flex; align-items: center; gap: 1.5rem;
       position: relative; overflow: hidden;
+      flex-shrink: 0;
     }
-    /* grid overlay like hero */
     .cv-header::before {
       content: ''; position: absolute; inset: 0; pointer-events: none;
       background-image:
@@ -77,7 +100,6 @@
         linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px);
       background-size: 24px 24px;
     }
-    /* shimmer blob */
     .cv-header::after {
       content: ''; position: absolute; inset: 0; pointer-events: none;
       background:
@@ -87,7 +109,7 @@
 
     .cv-photo {
       position: relative; z-index: 1; flex-shrink: 0;
-      width: 82px; height: 82px; border-radius: 50%;
+      width: 80px; height: 80px; border-radius: 50%;
       border: 3px solid rgba(255,255,255,0.55);
       background: linear-gradient(135deg, var(--p-300), var(--p-600));
       overflow: hidden;
@@ -100,32 +122,32 @@
 
     .cv-header-mid { position: relative; z-index: 1; flex: 1; }
     .cv-name {
-      font-size: 2rem; font-weight: 800; color: white;
-      line-height: 1; letter-spacing: -0.02em; margin-bottom: 0.2rem;
+      font-size: 1.9rem; font-weight: 800; color: white;
+      line-height: 1; letter-spacing: -0.02em; margin-bottom: 0.18rem;
     }
     .cv-title {
-      font-size: 0.8rem; font-weight: 700;
+      font-size: 0.78rem; font-weight: 700;
       color: rgba(255,255,255,0.88); letter-spacing: 0.04em;
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.8rem;
     }
     .cv-metrics { display: flex; gap: 1.4rem; }
     .cv-m-val {
       font-family: 'Syne', sans-serif;
-      font-size: 1.1rem; font-weight: 800; color: white; line-height: 1;
+      font-size: 1.05rem; font-weight: 800; color: white; line-height: 1;
     }
     .cv-m-lbl {
-      font-size: 0.52rem; color: rgba(255,255,255,0.6);
+      font-size: 0.5rem; color: rgba(255,255,255,0.6);
       text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.1rem;
     }
 
     .cv-header-contact {
       position: relative; z-index: 1;
-      display: flex; flex-direction: column; gap: 0.32rem;
+      display: flex; flex-direction: column; gap: 0.3rem;
       align-self: flex-start;
     }
     .ci {
       display: flex; align-items: center; gap: 0.42rem;
-      font-size: 0.68rem; color: rgba(255,255,255,0.82);
+      font-size: 0.67rem; color: rgba(255,255,255,0.82);
     }
     .ci a { color: rgba(255,255,255,0.82); text-decoration: none; }
     .ci-dot {
@@ -136,123 +158,184 @@
     }
 
     /* ══════════════════════════════
-       BODY
+       PAGE 2 — MINI HEADER
+    ══════════════════════════════ */
+    .cv-page2-header {
+      background: linear-gradient(90deg, var(--p-700) 0%, var(--p-500) 100%);
+      padding: 0.55rem 1.8rem;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-shrink: 0;
+      position: relative; overflow: hidden;
+    }
+    .cv-page2-header::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .p2h-left { position: relative; z-index: 1; display: flex; align-items: center; gap: 0.6rem; }
+    .p2h-name {
+      font-family: 'Syne', sans-serif; font-size: 0.88rem; font-weight: 800; color: white;
+    }
+    .p2h-sep { color: rgba(255,255,255,0.35); }
+    .p2h-title { font-size: 0.63rem; color: rgba(255,255,255,0.78); font-weight: 600; }
+    .p2h-right {
+      position: relative; z-index: 1;
+      font-size: 0.59rem; color: rgba(255,255,255,0.65);
+    }
+
+    /* ── Portfolio badge in header ── */
+    .cv-portfolio-badge {
+      position: relative; z-index: 1;
+      display: inline-flex; align-items: center; gap: 0.38rem;
+      margin-top: 0.7rem;
+      background: rgba(255,255,255,0.18);
+      border: 1.5px solid rgba(255,255,255,0.45);
+      border-radius: 30px;
+      padding: 0.3rem 0.85rem 0.3rem 0.55rem;
+      text-decoration: none;
+      backdrop-filter: blur(6px);
+      transition: background 0.2s;
+    }
+    .cv-portfolio-badge:hover { background: rgba(255,255,255,0.28); }
+    .cv-portfolio-badge .badge-icon {
+      width: 18px; height: 18px; border-radius: 50%;
+      background: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.6rem; flex-shrink: 0;
+    }
+    .cv-portfolio-badge .badge-label {
+      font-size: 0.58rem; font-weight: 700; color: rgba(255,255,255,0.7);
+      text-transform: uppercase; letter-spacing: 0.1em;
+    }
+    .cv-portfolio-badge .badge-url {
+      font-size: 0.65rem; font-weight: 800; color: white;
+      letter-spacing: -0.01em;
+    }
+    .cv-portfolio-badge .badge-arrow {
+      font-size: 0.7rem; color: rgba(255,255,255,0.7); margin-left: 0.1rem;
+    }
+
+    /* ══════════════════════════════
+       BODY (both pages)
     ══════════════════════════════ */
     .cv-body {
       display: grid;
       grid-template-columns: 66mm 1fr;
+      flex: 1;
     }
 
     /* ── LEFT SIDEBAR ── */
     .cv-left {
       background: var(--p-100);
-      padding: 1.4rem 1.25rem;
+      padding: 1.3rem 1.2rem;
       border-right: 1px solid var(--border);
     }
 
     /* ── RIGHT MAIN ── */
     .cv-right {
-      padding: 1.4rem 1.6rem;
+      padding: 1.3rem 1.55rem;
     }
 
     /* ── Section label ── */
     .sec-lbl {
-      font-size: 0.57rem; font-weight: 700;
+      font-size: 0.56rem; font-weight: 700;
       text-transform: uppercase; letter-spacing: 0.18em;
       color: var(--p-600);
       display: flex; align-items: center; gap: 0.4rem;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.72rem;
     }
     .sec-lbl::after {
       content: ''; flex: 1; height: 1.5px;
       background: linear-gradient(to right, var(--p-400), transparent);
     }
 
-    .cv-divider { height: 1px; background: var(--border); margin: 1rem 0; }
+    .cv-divider { height: 1px; background: var(--border); margin: 0.9rem 0; }
 
     /* ════════ KEY RESULTS ════════ */
     .kpi-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.38rem;
     }
     .kpi-card {
-      background: white; border-radius: 9px; padding: 0.55rem 0.7rem;
+      background: white; border-radius: 8px; padding: 0.5rem 0.65rem;
       border: 1.5px solid var(--p-200);
       box-shadow: 0 1px 6px rgba(139,92,246,0.08);
     }
     .kpi-val {
       font-family: 'Syne', sans-serif;
-      font-size: 0.95rem; font-weight: 800; color: var(--p-700); line-height: 1;
+      font-size: 0.92rem; font-weight: 800; color: var(--p-700); line-height: 1;
     }
     .kpi-val.amber { color: var(--amber); }
     .kpi-lbl {
-      font-size: 0.53rem; color: var(--muted);
-      margin-top: 0.16rem; line-height: 1.3;
+      font-size: 0.52rem; color: var(--muted);
+      margin-top: 0.14rem; line-height: 1.3;
     }
 
     /* ════════ SKILLS ════════ */
-    .skill-block { margin-bottom: 0.75rem; }
+    .skill-block { margin-bottom: 0.68rem; }
     .skill-ttl {
-      font-size: 0.6rem; font-weight: 700; color: var(--p-700);
-      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.38rem;
+      font-size: 0.58rem; font-weight: 700; color: var(--p-700);
+      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.34rem;
     }
-    .tags { display: flex; flex-wrap: wrap; gap: 0.28rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.26rem; }
     .tag {
-      font-size: 0.6rem; color: var(--p-700); font-weight: 500;
-      background: white; padding: 0.2rem 0.58rem;
+      font-size: 0.59rem; color: var(--p-700); font-weight: 500;
+      background: white; padding: 0.18rem 0.55rem;
       border-radius: 20px; border: 1px solid var(--p-300); line-height: 1.4;
     }
     .tag.amber { color: var(--amber); background: var(--amber-l); border-color: #fcd34d; }
     .tag.green { color: var(--green); background: var(--green-l); border-color: #6ee7b7; }
 
     /* ════════ EDUCATION ════════ */
-    .edu-item { margin-bottom: 0.6rem; }
+    .edu-item { margin-bottom: 0.55rem; }
     .edu-school {
-      font-size: 0.72rem; font-weight: 700; color: var(--text);
+      font-size: 0.71rem; font-weight: 700; color: var(--text);
       font-family: 'Syne', sans-serif; line-height: 1.3;
     }
     .edu-detail {
-      font-size: 0.64rem; color: var(--muted); line-height: 1.5;
-      margin-top: 0.12rem;
+      font-size: 0.63rem; color: var(--muted); line-height: 1.5;
+      margin-top: 0.1rem;
     }
     .edu-gpa {
-      display: inline-block; font-size: 0.6rem; font-weight: 700;
+      display: inline-block; font-size: 0.59rem; font-weight: 700;
       color: var(--p-600); background: var(--p-200);
-      padding: 0.12rem 0.55rem; border-radius: 20px; margin-top: 0.2rem;
+      padding: 0.1rem 0.52rem; border-radius: 20px; margin-top: 0.18rem;
     }
 
     /* ════════ CERTIFICATES ════════ */
-    .cert-list { display: flex; flex-direction: column; gap: 0.32rem; }
+    .cert-list { display: flex; flex-direction: column; gap: 0.3rem; }
     .cert-item {
-      display: flex; align-items: flex-start; gap: 0.42rem;
-      font-size: 0.64rem; color: var(--text); line-height: 1.4;
+      display: flex; align-items: flex-start; gap: 0.4rem;
+      font-size: 0.63rem; color: var(--text); line-height: 1.4;
     }
     .cert-dot {
-      width: 14px; height: 14px; border-radius: 50%;
+      width: 13px; height: 13px; border-radius: 50%;
       background: linear-gradient(135deg, var(--p-400), var(--p-700));
       display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; margin-top: 0.06rem;
-      color: white; font-size: 0.45rem; font-weight: 700;
+      flex-shrink: 0; margin-top: 0.08rem;
+      color: white; font-size: 0.44rem; font-weight: 700;
     }
     .cert-name { font-weight: 600; color: var(--p-700); }
-    .cert-org { color: var(--muted); font-size: 0.58rem; }
+    .cert-org { color: var(--muted); font-size: 0.57rem; }
 
     /* ════════ LANGUAGES ════════ */
-    .lang-list { display: flex; flex-direction: column; gap: 0.4rem; }
+    .lang-list { display: flex; flex-direction: column; gap: 0.38rem; }
     .lang-item { display: flex; justify-content: space-between; align-items: center; }
-    .lang-name { font-size: 0.68rem; font-weight: 600; color: var(--text); }
+    .lang-name { font-size: 0.67rem; font-weight: 600; color: var(--text); }
     .lang-level {
-      font-size: 0.58rem; color: var(--p-600); font-weight: 600;
-      background: var(--p-200); padding: 0.12rem 0.55rem; border-radius: 20px;
+      font-size: 0.57rem; color: var(--p-600); font-weight: 600;
+      background: var(--p-200); padding: 0.1rem 0.52rem; border-radius: 20px;
     }
-    .lang-sub { font-size: 0.6rem; color: var(--muted); margin-top: 0.08rem; }
+    .lang-sub { font-size: 0.59rem; color: var(--muted); margin-top: 0.06rem; }
 
     /* ══════════════════════════
        RIGHT — SUMMARY
     ══════════════════════════ */
     .cv-summary {
-      font-size: 0.74rem; color: #444; line-height: 1.82;
-      margin-bottom: 1.1rem;
-      padding: 0.85rem 1rem;
+      font-size: 0.72rem; color: #444; line-height: 1.78;
+      margin-bottom: 1rem;
+      padding: 0.78rem 0.95rem;
       background: var(--p-100);
       border-left: 3px solid var(--p-400);
       border-radius: 0 10px 10px 0;
@@ -262,51 +345,41 @@
     /* ══════════════════════════
        RIGHT — EXPERIENCE
     ══════════════════════════ */
-    .exp-item { margin-bottom: 1rem; page-break-inside: avoid; }
+    .exp-item { margin-bottom: 0.9rem; page-break-inside: avoid; break-inside: avoid; }
     .exp-item:last-child { margin-bottom: 0; }
 
     .exp-top {
       display: flex; justify-content: space-between;
-      align-items: flex-start; gap: 0.5rem; margin-bottom: 0.1rem;
+      align-items: flex-start; gap: 0.5rem; margin-bottom: 0.08rem;
     }
     .exp-role {
-      font-size: 0.82rem; font-weight: 700; color: var(--text);
+      font-size: 0.8rem; font-weight: 700; color: var(--text);
       font-family: 'Syne', sans-serif;
     }
     .exp-badge {
-      font-size: 0.57rem; font-weight: 700; color: white;
-      background: var(--p-600); padding: 0.14rem 0.6rem;
+      font-size: 0.56rem; font-weight: 700; color: white;
+      background: var(--p-600); padding: 0.13rem 0.58rem;
       border-radius: 20px; white-space: nowrap; flex-shrink: 0;
     }
     .exp-badge.current {
       background: linear-gradient(135deg, var(--amber), #b45309);
     }
     .exp-co {
-      font-size: 0.68rem; color: var(--p-600); font-weight: 600;
-      margin-bottom: 0.32rem;
+      font-size: 0.67rem; color: var(--p-600); font-weight: 600;
+      margin-bottom: 0.28rem;
     }
     .exp-co span { color: var(--muted); font-weight: 400; margin-left: 0.28rem; }
 
     .exp-list { list-style: none; }
     .exp-list li {
-      font-size: 0.7rem; color: #4b5563; line-height: 1.62;
-      padding-left: 0.85rem; position: relative; margin-bottom: 0.1rem;
+      font-size: 0.69rem; color: #4b5563; line-height: 1.6;
+      padding-left: 0.82rem; position: relative; margin-bottom: 0.08rem;
     }
     .exp-list li::before {
       content: '✦'; position: absolute; left: 0;
-      color: var(--p-400); font-size: 0.46rem; top: 0.3rem;
+      color: var(--p-400); font-size: 0.44rem; top: 0.3rem;
     }
     .exp-list li strong { color: var(--amber); font-weight: 700; }
-
-    /* ══════════════════════════
-       PRINT
-    ══════════════════════════ */
-    @media print {
-      body { background: white; }
-      .print-bar { display: none; }
-      .cv { margin: 0; box-shadow: none; width: 100%; }
-      @page { margin: 0; size: A4; }
-    }
   </style>
 </head>
 <body>
@@ -319,284 +392,333 @@
 
 <div class="cv">
 
-  <!-- ══ HEADER ══ -->
-  <header class="cv-header">
-    <div class="cv-photo">
-      <img src="photo.png" alt="Janny Vũ">
+  <!-- ══════════════════════════════════
+       PAGE 1
+  ══════════════════════════════════ -->
+  <div class="cv-page cv-page-1">
+
+    <!-- HEADER -->
+    <header class="cv-header">
+      <div class="cv-photo">
+        <img src="photo.png" alt="Janny Vũ">
+      </div>
+
+      <div class="cv-header-mid">
+        <h1 class="cv-name">Janny Vũ</h1>
+        <div class="cv-title">SEO Specialist &amp; Organic Growth Strategist</div>
+        <div class="cv-metrics">
+          <div><div class="cv-m-val">4+</div><div class="cv-m-lbl">Years Exp.</div></div>
+          <div><div class="cv-m-val">1M+</div><div class="cv-m-lbl">Monthly Traffic</div></div>
+          <div><div class="cv-m-val">15+</div><div class="cv-m-lbl">Websites Built</div></div>
+          <div><div class="cv-m-val">6</div><div class="cv-m-lbl">Industries</div></div>
+        </div>
+        <a href="https://jannyvu.github.io/home/" class="cv-portfolio-badge">
+          <span class="badge-icon">🌐</span>
+          <span>
+            <span class="badge-label">Portfolio</span><br>
+            <span class="badge-url">jannyvu.github.io/home</span>
+          </span>
+          <span class="badge-arrow">→</span>
+        </a>
+      </div>
+
+      <div class="cv-header-contact">
+        <div class="ci"><div class="ci-dot">📞</div><a href="tel:0522933064">0522 933 064</a></div>
+        <div class="ci"><div class="ci-dot">✉</div><a href="mailto:jannyvu14100@gmail.com">jannyvu14100@gmail.com</a></div>
+        <div class="ci"><div class="ci-dot">in</div><a href="https://linkedin.com/in/janny-vu">linkedin.com/in/janny-vu</a></div>
+        <div class="ci"><div class="ci-dot">📍</div>District 1, Ho Chi Minh City</div>
+      </div>
+    </header>
+
+    <!-- BODY PAGE 1 -->
+    <div class="cv-body">
+
+      <!-- LEFT: Key Results + Skills -->
+      <aside class="cv-left">
+
+        <div class="sec-lbl">Key Results</div>
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-val">1.06M</div>
+            <div class="kpi-lbl">Impressions — Love's Auto Detail</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-val">13.4K</div>
+            <div class="kpi-lbl">Clicks in 16 months</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-val amber">600%</div>
+            <div class="kpi-lbl">Traffic growth — Get Freebies</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-val amber">$10K+</div>
+            <div class="kpi-lbl">Affiliate revenue in 6 months</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-val">30+</div>
+            <div class="kpi-lbl">Clients · 95% satisfaction rate</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-val amber">$7K+</div>
+            <div class="kpi-lbl">Monthly revenue — Toolmart</div>
+          </div>
+        </div>
+
+        <div class="cv-divider"></div>
+
+        <div class="sec-lbl">Skills</div>
+        <div class="skill-block">
+          <div class="skill-ttl">Core SEO</div>
+          <div class="tags">
+            <span class="tag">On-page SEO</span>
+            <span class="tag">Off-page SEO</span>
+            <span class="tag">Technical SEO</span>
+            <span class="tag">Local SEO</span>
+            <span class="tag">International SEO</span>
+            <span class="tag">Content Strategy</span>
+            <span class="tag">Keyword Research</span>
+            <span class="tag">Link Building</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-ttl">Tools</div>
+          <div class="tags">
+            <span class="tag">Google Search Console</span>
+            <span class="tag">GA4</span>
+            <span class="tag">Ahrefs</span>
+            <span class="tag">SEMrush</span>
+            <span class="tag">Screaming Frog</span>
+            <span class="tag">SurferSEO</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-ttl">Other</div>
+          <div class="tags">
+            <span class="tag">WordPress</span>
+            <span class="tag">Elementor</span>
+            <span class="tag">Webflow</span>
+            <span class="tag amber">AI Workflows</span>
+            <span class="tag amber">Team Lead</span>
+            <span class="tag">Canva · CapCut</span>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- RIGHT: Summary + Experience 1–3 -->
+      <main class="cv-right">
+
+        <div class="sec-lbl">Professional Summary</div>
+        <p class="cv-summary">
+          SEO professional with <strong>4+ years of experience</strong> driving organic growth across finance, affiliate, local, and e-commerce markets globally. Proven track record achieving <strong>1M+ monthly impressions</strong>, 600% traffic growth, and $10K+ affiliate revenue within 6 months. Experienced in <strong>managing 30+ client projects</strong>, building and leading SEO teams, transitioning from agency-based to in-house operations, and developing <strong>AI-driven content workflows</strong> for scalable, long-term growth.
+        </p>
+
+        <div class="sec-lbl">Work Experience</div>
+
+        <div class="exp-item">
+          <div class="exp-top">
+            <div class="exp-role">SEO Team Lead</div>
+            <div class="exp-badge current">Dec 2025 — Present</div>
+          </div>
+          <div class="exp-co">WeCopyTrade <span>· FinTech / Copy Trading Platform</span></div>
+          <ul class="exp-list">
+            <li>Leading SEO strategy and execution across <strong>multiple international markets</strong></li>
+            <li>Managing and mentoring SEO team members; overseeing content quality and performance</li>
+            <li>Building <strong>AI-driven workflows</strong> for content research, brief creation, and task management</li>
+            <li>Analyzing and reporting organic KPIs via Google Search Console, GA4, and Ahrefs</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-top">
+            <div class="exp-role">SEO Specialist</div>
+            <div class="exp-badge">Aug — Dec 2025</div>
+          </div>
+          <div class="exp-co">WeCopyTrade <span>· FinTech / Copy Trading Platform</span></div>
+          <ul class="exp-list">
+            <li>Managed and evaluated global SEO agencies; selected partners based on strategy and ROI fit</li>
+            <li>Led transition from <strong>external agencies to in-house SEO team</strong>, reducing costs and improving scalability</li>
+            <li>Developed internal SEO documentation, onboarding guides, and reporting frameworks</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-top">
+            <div class="exp-role">SEO Specialist</div>
+            <div class="exp-badge">June 2024 — Aug 2025</div>
+          </div>
+          <div class="exp-co">Detailers Movement International <span>· US Auto Detailing Industry</span></div>
+          <ul class="exp-list">
+            <li>Managed SEO for <strong>30+ US-based clients</strong> — 95% satisfaction rate, 80% retention beyond 6 months</li>
+            <li>Love's Auto Detail: <strong>13.4K clicks &amp; 1.06M impressions</strong> in 16 months via local SEO</li>
+            <li>Wax Masters Detailing: <strong>1.17K clicks, 136K impressions</strong> — built from zero visibility to top local rankings</li>
+            <li>Toolmart eCommerce: achieved <strong>$7K+ monthly organic revenue</strong> within the first 3 months</li>
+          </ul>
+        </div>
+
+      </main>
+    </div><!-- /cv-body page 1 -->
+
+  </div><!-- /cv-page-1 -->
+
+
+  <!-- ══════════════════════════════════
+       PAGE 2
+  ══════════════════════════════════ -->
+  <div class="cv-page cv-page-2">
+
+    <!-- MINI HEADER -->
+    <div class="cv-page2-header">
+      <div class="p2h-left">
+        <span class="p2h-name">Janny Vũ</span>
+        <span class="p2h-sep">—</span>
+        <span class="p2h-title">SEO Specialist &amp; Organic Growth Strategist</span>
+      </div>
+      <div class="p2h-right">jannyvu14100@gmail.com &nbsp;·&nbsp; 0522 933 064 &nbsp;·&nbsp; linkedin.com/in/janny-vu</div>
     </div>
 
-    <div class="cv-header-mid">
-      <h1 class="cv-name">Janny Vũ</h1>
-      <div class="cv-title">SEO Specialist &amp; Organic Growth Strategist</div>
-      <div class="cv-metrics">
-        <div><div class="cv-m-val">4+</div><div class="cv-m-lbl">Years Exp.</div></div>
-        <div><div class="cv-m-val">1M+</div><div class="cv-m-lbl">Monthly Traffic</div></div>
-        <div><div class="cv-m-val">15+</div><div class="cv-m-lbl">Websites Built</div></div>
-        <div><div class="cv-m-val">6</div><div class="cv-m-lbl">Industries</div></div>
-      </div>
-    </div>
+    <!-- BODY PAGE 2 -->
+    <div class="cv-body">
 
-    <div class="cv-header-contact">
-      <div class="ci"><div class="ci-dot">📞</div><a href="tel:0522933064">0522 933 064</a></div>
-      <div class="ci"><div class="ci-dot">✉</div><a href="mailto:jannyvu14100@gmail.com">jannyvu14100@gmail.com</a></div>
-      <div class="ci"><div class="ci-dot">in</div><a href="https://linkedin.com/in/janny-vu">linkedin.com/in/janny-vu</a></div>
-      <div class="ci"><div class="ci-dot">🌐</div><a href="https://jannyvu.github.io/home/">jannyvu.github.io/home</a></div>
-      <div class="ci"><div class="ci-dot">📍</div>District 1, Ho Chi Minh City</div>
-    </div>
-  </header>
+      <!-- LEFT: Education + Certificates + Languages -->
+      <aside class="cv-left">
 
-  <!-- ══ BODY ══ -->
-  <div class="cv-body">
+        <div class="sec-lbl">Education</div>
+        <div class="edu-item">
+          <div class="edu-school">University of Economics<br>Ho Chi Minh City (UEH)</div>
+          <div class="edu-detail">
+            Bachelor of International Business<br>
+            2018 – 2022
+          </div>
+          <div class="edu-gpa">GPA: 3.3 / 4.0</div>
+        </div>
 
-    <!-- ────────── LEFT SIDEBAR ────────── -->
-    <aside class="cv-left">
+        <div class="cv-divider"></div>
 
-      <div class="sec-lbl">Key Results</div>
-      <div class="kpi-grid">
-        <div class="kpi-card">
-          <div class="kpi-val">1.06M</div>
-          <div class="kpi-lbl">Impressions — Love's Auto Detail</div>
+        <div class="sec-lbl">Certificates</div>
+        <div class="cert-list">
+          <div class="cert-item">
+            <div class="cert-dot">✓</div>
+            <div>
+              <div class="cert-name">TOEIC 780</div>
+              <div class="cert-org">ETS — International English Proficiency</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-dot">✓</div>
+            <div>
+              <div class="cert-name">Google Analytics Certification</div>
+              <div class="cert-org">Google</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-dot">✓</div>
+            <div>
+              <div class="cert-name">Google AdWords Certification</div>
+              <div class="cert-org">Google</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-dot">✓</div>
+            <div>
+              <div class="cert-name">Inbound Marketing Certification</div>
+              <div class="cert-org">HubSpot Academy</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-dot">✓</div>
+            <div>
+              <div class="cert-name">SEO Fundamentals Course</div>
+              <div class="cert-org">SEMrush Academy</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-dot">✓</div>
+            <div>
+              <div class="cert-name">Digital Literacy — IC3</div>
+              <div class="cert-org">Certiport</div>
+            </div>
+          </div>
         </div>
-        <div class="kpi-card">
-          <div class="kpi-val">13.4K</div>
-          <div class="kpi-lbl">Clicks in 16 months</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-val amber">600%</div>
-          <div class="kpi-lbl">Traffic growth — Get Freebies</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-val amber">$10K+</div>
-          <div class="kpi-lbl">Affiliate revenue in 6 months</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-val">30+</div>
-          <div class="kpi-lbl">Clients · 95% satisfaction rate</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-val amber">$7K+</div>
-          <div class="kpi-lbl">Monthly revenue — Toolmart</div>
-        </div>
-      </div>
 
-      <div class="cv-divider"></div>
+        <div class="cv-divider"></div>
 
-      <div class="sec-lbl">Skills</div>
-      <div class="skill-block">
-        <div class="skill-ttl">Core SEO</div>
-        <div class="tags">
-          <span class="tag">On-page SEO</span>
-          <span class="tag">Off-page SEO</span>
-          <span class="tag">Technical SEO</span>
-          <span class="tag">Local SEO</span>
-          <span class="tag">International SEO</span>
-          <span class="tag">Content Strategy</span>
-          <span class="tag">Keyword Research</span>
-          <span class="tag">Link Building</span>
-        </div>
-      </div>
-      <div class="skill-block">
-        <div class="skill-ttl">Tools</div>
-        <div class="tags">
-          <span class="tag">Google Search Console</span>
-          <span class="tag">GA4</span>
-          <span class="tag">Ahrefs</span>
-          <span class="tag">SEMrush</span>
-          <span class="tag">Screaming Frog</span>
-          <span class="tag">SurferSEO</span>
-        </div>
-      </div>
-      <div class="skill-block">
-        <div class="skill-ttl">Other</div>
-        <div class="tags">
-          <span class="tag">WordPress</span>
-          <span class="tag">Elementor</span>
-          <span class="tag">Webflow</span>
-          <span class="tag amber">AI Workflows</span>
-          <span class="tag amber">Team Lead</span>
-          <span class="tag">Canva · CapCut</span>
-        </div>
-      </div>
-
-      <div class="cv-divider"></div>
-
-      <div class="sec-lbl">Education</div>
-      <div class="edu-item">
-        <div class="edu-school">University of Economics<br>Ho Chi Minh City (UEH)</div>
-        <div class="edu-detail">
-          Bachelor of International Business<br>
-          2018 – 2022
-        </div>
-        <div class="edu-gpa">GPA: 3.3 / 4.0</div>
-      </div>
-
-      <div class="cv-divider"></div>
-
-      <div class="sec-lbl">Certificates</div>
-      <div class="cert-list">
-        <div class="cert-item">
-          <div class="cert-dot">✓</div>
+        <div class="sec-lbl">Languages</div>
+        <div class="lang-list">
           <div>
-            <div class="cert-name">TOEIC 780</div>
-            <div class="cert-org">ETS — International English Proficiency</div>
+            <div class="lang-item">
+              <span class="lang-name">Vietnamese</span>
+              <span class="lang-level">Native</span>
+            </div>
           </div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-dot">✓</div>
           <div>
-            <div class="cert-name">Google Analytics Certification</div>
-            <div class="cert-org">Google</div>
+            <div class="lang-item">
+              <span class="lang-name">English</span>
+              <span class="lang-level">Professional</span>
+            </div>
+            <div class="lang-sub">TOEIC 780 · Write SEO &amp; marketing content</div>
           </div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-dot">✓</div>
           <div>
-            <div class="cert-name">Google AdWords Certification</div>
-            <div class="cert-org">Google</div>
+            <div class="lang-item">
+              <span class="lang-name">Chinese</span>
+              <span class="lang-level">Basic</span>
+            </div>
+            <div class="lang-sub">Listening &amp; speaking</div>
           </div>
         </div>
-        <div class="cert-item">
-          <div class="cert-dot">✓</div>
-          <div>
-            <div class="cert-name">Inbound Marketing Certification</div>
-            <div class="cert-org">HubSpot Academy</div>
+
+      </aside>
+
+      <!-- RIGHT: Experience 4–6 -->
+      <main class="cv-right">
+
+        <div class="sec-lbl">Work Experience <span style="font-style:italic;font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted);font-size:0.55rem;">(continued)</span></div>
+
+        <div class="exp-item">
+          <div class="exp-top">
+            <div class="exp-role">SEO - Marketing Executive</div>
+            <div class="exp-badge">June 2023 — May 2024</div>
           </div>
+          <div class="exp-co">Thami Shipping &amp; Airfreight Corp. <span>· International Logistics</span></div>
+          <ul class="exp-list">
+            <li>Planned and executed full on-page SEO strategy; achieved <strong>top search rankings</strong> for informational keywords</li>
+            <li>Created marketing design assets, company videos for sales pitches, and managed social media presence</li>
+            <li>Produced and managed content calendar across website, LinkedIn, and Facebook channels</li>
+            <li>Planned and promoted internal company events (trips, anniversaries, year-end parties)</li>
+          </ul>
         </div>
-        <div class="cert-item">
-          <div class="cert-dot">✓</div>
-          <div>
-            <div class="cert-name">SEO Fundamentals Course</div>
-            <div class="cert-org">SEMrush Academy</div>
+
+        <div class="exp-item">
+          <div class="exp-top">
+            <div class="exp-role">SEO Executive &amp; Digital Marketing</div>
+            <div class="exp-badge">Mar 2022 — May 2023</div>
           </div>
+          <div class="exp-co">Interate Corp. <span>· Affiliate &amp; Content Marketing</span></div>
+          <ul class="exp-list">
+            <li>Grew Get Freebies Today traffic by <strong>600%</strong> — generated <strong>2,000+ leads &amp; $10K+ revenue in 6 months</strong></li>
+            <li>Supported Health Canal reaching <strong>1M average monthly visitors</strong> via off-page SEO strategy</li>
+            <li>Built and managed TikTok affiliate channels — <strong>30K+ &amp; 5.7K followers</strong>, $1,000+/month revenue in 2 months</li>
+            <li>Facebook Fanpage management — <strong>2 REEL posts reached 1M+ views</strong>; led seeding team across platforms</li>
+          </ul>
         </div>
-        <div class="cert-item">
-          <div class="cert-dot">✓</div>
-          <div>
-            <div class="cert-name">Digital Literacy — IC3</div>
-            <div class="cert-org">Certiport</div>
+
+        <div class="exp-item">
+          <div class="exp-top">
+            <div class="exp-role">SEO Off-page Collaborator</div>
+            <div class="exp-badge">Dec 2021 — Feb 2022</div>
           </div>
+          <div class="exp-co">Astronet Media <span>· Content &amp; Authority Building</span></div>
+          <ul class="exp-list">
+            <li>Executed backlink acquisition and outreach for large-scale content sites including Health Canal</li>
+            <li>Negotiated guest post pricing and partnership terms with niche website owners</li>
+            <li>Tracked link placement progress and reported weekly metrics to senior SEO team</li>
+          </ul>
         </div>
-      </div>
 
-      <div class="cv-divider"></div>
+      </main>
+    </div><!-- /cv-body page 2 -->
 
-      <div class="sec-lbl">Languages</div>
-      <div class="lang-list">
-        <div>
-          <div class="lang-item">
-            <span class="lang-name">Vietnamese</span>
-            <span class="lang-level">Native</span>
-          </div>
-        </div>
-        <div>
-          <div class="lang-item">
-            <span class="lang-name">English</span>
-            <span class="lang-level">Professional</span>
-          </div>
-          <div class="lang-sub">TOEIC 780 · Write SEO &amp; marketing content</div>
-        </div>
-        <div>
-          <div class="lang-item">
-            <span class="lang-name">Chinese</span>
-            <span class="lang-level">Basic</span>
-          </div>
-          <div class="lang-sub">Listening &amp; speaking</div>
-        </div>
-      </div>
-
-    </aside>
-
-    <!-- ────────── RIGHT MAIN ────────── -->
-    <main class="cv-right">
-
-      <div class="sec-lbl">Professional Summary</div>
-      <p class="cv-summary">
-        SEO professional with <strong>4+ years of experience</strong> driving organic growth across finance, affiliate, local, and e-commerce markets globally. Proven track record achieving <strong>1M+ monthly impressions</strong>, 600% traffic growth, and $10K+ affiliate revenue within 6 months. Experienced in <strong>managing 30+ client projects</strong>, building and leading SEO teams, transitioning from agency-based to in-house operations, and developing <strong>AI-driven content workflows</strong> for scalable, long-term growth.
-      </p>
-
-      <div class="sec-lbl">Work Experience</div>
-
-      <div class="exp-item">
-        <div class="exp-top">
-          <div class="exp-role">SEO Team Lead</div>
-          <div class="exp-badge current">Dec 2025 — Present</div>
-        </div>
-        <div class="exp-co">WeCopyTrade <span>· FinTech / Copy Trading Platform</span></div>
-        <ul class="exp-list">
-          <li>Leading SEO strategy and execution across <strong>multiple international markets</strong></li>
-          <li>Managing and mentoring SEO team members; overseeing content quality and performance</li>
-          <li>Building <strong>AI-driven workflows</strong> for content research, brief creation, and task management</li>
-          <li>Analyzing and reporting organic KPIs via Google Search Console, GA4, and Ahrefs</li>
-        </ul>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-top">
-          <div class="exp-role">SEO Specialist</div>
-          <div class="exp-badge">Aug — Dec 2025</div>
-        </div>
-        <div class="exp-co">WeCopyTrade <span>· FinTech / Copy Trading Platform</span></div>
-        <ul class="exp-list">
-          <li>Managed and evaluated global SEO agencies; selected partners based on strategy and ROI fit</li>
-          <li>Led transition from <strong>external agencies to in-house SEO team</strong>, reducing costs and improving scalability</li>
-        </ul>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-top">
-          <div class="exp-role">SEO Specialist</div>
-          <div class="exp-badge">June 2024 — Aug 2025</div>
-        </div>
-        <div class="exp-co">Detailers Movement International <span>· US Auto Detailing Industry</span></div>
-        <ul class="exp-list">
-          <li>Managed SEO for <strong>30+ US-based clients</strong> — 95% satisfaction rate, 80% retention beyond 6 months</li>
-          <li>Love's Auto Detail: <strong>13.4K clicks &amp; 1.06M impressions</strong> in 16 months via local SEO</li>
-          <li>Wax Masters Detailing: <strong>1.17K clicks, 136K impressions</strong> — built from zero visibility to top local rankings</li>
-          <li>Toolmart eCommerce: achieved <strong>$7K+ monthly organic revenue</strong> within the first 3 months</li>
-        </ul>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-top">
-          <div class="exp-role">SEO - Marketing Executive</div>
-          <div class="exp-badge">June 2023 — May 2024</div>
-        </div>
-        <div class="exp-co">Thami Shipping &amp; Airfreight Corp. <span>· International Logistics</span></div>
-        <ul class="exp-list">
-          <li>Planned and executed full on-page SEO strategy; achieved <strong>top search rankings</strong> for informational keywords</li>
-          <li>Created marketing design assets, company videos for sales pitches, and managed social media presence</li>
-          <li>Planned and promoted internal company events (trips, anniversaries, year-end parties)</li>
-        </ul>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-top">
-          <div class="exp-role">SEO Executive &amp; Digital Marketing</div>
-          <div class="exp-badge">Mar 2022 — May 2023</div>
-        </div>
-        <div class="exp-co">Interate Corp. <span>· Affiliate &amp; Content Marketing</span></div>
-        <ul class="exp-list">
-          <li>Grew Get Freebies Today traffic by <strong>600%</strong> — generated <strong>2,000+ leads &amp; $10K+ revenue in 6 months</strong></li>
-          <li>Supported Health Canal reaching <strong>1M average monthly visitors</strong> via off-page SEO strategy</li>
-          <li>Built and managed TikTok affiliate channels — <strong>30K+ &amp; 5.7K followers</strong>, $1,000+/month revenue in 2 months</li>
-          <li>Facebook Fanpage management — <strong>2 REEL posts reached 1M+ views</strong>; led seeding team across platforms</li>
-        </ul>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-top">
-          <div class="exp-role">SEO Off-page Collaborator</div>
-          <div class="exp-badge">Dec 2021 — Feb 2022</div>
-        </div>
-        <div class="exp-co">Astronet Media <span>· Content &amp; Authority Building</span></div>
-        <ul class="exp-list">
-          <li>Executed backlink acquisition and outreach for large-scale content sites including Health Canal</li>
-          <li>Negotiated guest post pricing and partnership terms with niche website owners</li>
-        </ul>
-      </div>
-
-    </main>
-  </div>
+  </div><!-- /cv-page-2 -->
 
 </div><!-- /cv -->
 
