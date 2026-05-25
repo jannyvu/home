@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Janny Vũ — SEO Specialist & Organic Growth Strategist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --p-light: #f3e8ff;
+      --p-200: #e9d5ff;
+      --p-400: #c084fc;
+      --p-500: #a855f7;
+      --p-600: #9333ea;
+      --p-700: #7e22ce;
+      --p-dark: #4a1072;
+      --white: #ffffff;
+      --text: #1e0a3c;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+      padding: 0.9rem 2.5rem; display: flex; justify-content: space-between; align-items: center;
+      border-bottom: 1px solid var(--p-200); box-shadow: 0 2px 20px rgba(139,92,246,0.08);
+    }
+    .nav-logo { font-weight: 800; font-size: 1.1rem; color: var(--p-700); letter-spacing: 0.02em; }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--text); font-size: 0.82rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--p-600); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ddb6f5 0%, #c084fc 45%, #9b59d0 75%, #7e22ce 100%);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden; text-align: center;
+      padding: 8rem 2rem 5rem;
+    }
+    /* Grid lines overlay */
+    .hero::before {
+      content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    /* Aurora blobs */
+    .hero-blob { position: absolute; border-radius: 50%; pointer-events: none; z-index: 0; filter: blur(55px); }
+    .hero-blob-1 {
+      width: 600px; height: 380px; opacity: 0.6;
+      background: radial-gradient(ellipse, rgba(255,255,255,0.5) 0%, transparent 65%);
+      top: -10%; left: 50%; transform: translateX(-50%);
+      animation: blob1 8s ease-in-out infinite alternate;
+    }
+    .hero-blob-2 {
+      width: 420px; height: 420px; opacity: 0.55;
+      background: radial-gradient(ellipse, rgba(255,180,255,0.55) 0%, transparent 65%);
+      bottom: -5%; left: -6%;
+      animation: blob2 11s ease-in-out infinite alternate;
+    }
+    .hero-blob-3 {
+      width: 340px; height: 340px; opacity: 0.5;
+      background: radial-gradient(ellipse, rgba(100,30,180,0.6) 0%, transparent 65%);
+      top: 8%; right: -4%;
+      animation: blob3 13s ease-in-out infinite alternate;
+    }
+    .hero-blob-4 {
+      width: 200px; height: 200px; opacity: 0.65;
+      background: radial-gradient(ellipse, rgba(255,255,255,0.4) 0%, transparent 65%);
+      bottom: 18%; right: 8%; filter: blur(30px);
+      animation: blob4 6s ease-in-out infinite alternate;
+    }
+    @keyframes blob1 { 0% { transform:translateX(-50%) scale(1);   opacity:.45; } 100% { transform:translateX(-54%) scale(1.2); opacity:.75; } }
+    @keyframes blob2 { 0% { transform:translate(0,0) scale(1); }    100% { transform:translate(50px,-65px) scale(1.25); } }
+    @keyframes blob3 { 0% { transform:translate(0,0) scale(1); }    100% { transform:translate(-38px,48px) scale(1.15); } }
+    @keyframes blob4 { 0% { transform:translate(0,0) scale(1); opacity:.5; } 100% { transform:translate(-22px,-28px) scale(1.3); opacity:.85; } }
+    /* Electric shimmer lines */
+    .hero-line {
+      position: absolute; height: 1px; pointer-events: none; z-index: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.65), transparent);
+      animation: shimmer var(--d,5s) ease-in-out infinite;
+      animation-delay: var(--dl,0s);
+    }
+    @keyframes shimmer { 0% { opacity:0; transform:translateX(-120%); } 45% { opacity:1; } 100% { opacity:0; transform:translateX(220%); } }
+
+    .hero-inner { position: relative; z-index: 1; max-width: 700px; width: 100%; margin: 0 auto; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.92); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 0.45rem 1.1rem; border-radius: 50px;
+      margin-bottom: 1.8rem; backdrop-filter: blur(10px);
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 7px; height: 7px; background: white; border-radius: 50%; flex-shrink: 0;
+      box-shadow: 0 0 8px white, 0 0 18px rgba(255,255,255,0.6);
+      animation: dotPulse 2.5s ease-in-out infinite alternate;
+    }
+    @keyframes dotPulse { 0% { box-shadow:0 0 5px white; } 100% { box-shadow:0 0 14px white, 0 0 30px rgba(255,255,255,0.45); } }
+    .hero-name {
+      font-size: clamp(3.5rem, 8vw, 6.5rem); font-weight: 900; color: white;
+      line-height: 1.0; letter-spacing: -0.025em; margin-bottom: 0.9rem;
+    }
+    .hero-role {
+      font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 400;
+      color: rgba(255,255,255,0.75); margin-bottom: 1.6rem; line-height: 1.5;
+    }
+    .hero-role strong { color: white; font-weight: 700; }
+    .hero-bio {
+      font-size: 0.93rem; color: rgba(255,255,255,0.72);
+      line-height: 1.85; max-width: 560px; margin: 0 auto 2rem;
+    }
+    .hero-metrics {
+      display: flex; gap: 2.5rem; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 2.5rem; padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.18);
+    }
+    .hero-metric-val { font-size: 1.7rem; font-weight: 800; color: white; line-height: 1; }
+    .hero-metric-lbl {
+      font-size: 0.67rem; color: rgba(255,255,255,0.55); font-weight: 500;
+      margin-top: 0.25rem; text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .hero-btns { display: flex; gap: 0.9rem; flex-wrap: wrap; justify-content: center; }
+    .btn { padding: 0.75rem 1.9rem; border-radius: 50px; font-weight: 600; font-size: 0.87rem; text-decoration: none; transition: all 0.3s; }
+    .btn-white { background: white; color: var(--p-700); border: 2px solid white; }
+    .btn-white:hover { background: transparent; color: white; }
+    .btn-outline { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.55); }
+    .btn-outline:hover { background: rgba(255,255,255,0.15); }
+
+    /* LAYOUT */
+    section { padding: 5.5rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .sec-head { text-align: center; margin-bottom: 3.5rem; }
+    .sec-bar { height: 5px; width: 60px; background: linear-gradient(to right, var(--p-400), var(--p-700)); border-radius: 3px; margin: 0 auto 0.8rem; }
+    .sec-num { font-size: 5rem; font-weight: 900; color: var(--p-200); line-height: 1; }
+    .sec-title { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; color: var(--p-700); text-transform: uppercase; letter-spacing: 0.06em; margin-top: -1.2rem; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 5rem; align-items: start; }
+    .about-photo-wrap {
+      position: sticky; top: 7rem;
+    }
+    .about-photo {
+      position: relative;
+      border-radius: 22px; overflow: hidden;
+      aspect-ratio: 3/4;
+      background: linear-gradient(155deg, var(--p-200) 0%, var(--p-400) 60%, var(--p-600) 100%);
+      box-shadow: 0 28px 70px rgba(139,92,246,0.28);
+    }
+    .about-photo::before {
+      content: ''; position: absolute; inset: -13px; z-index: 0;
+      border: 2px dashed var(--p-400); border-radius: 30px; opacity: 0.5;
+      pointer-events: none;
+    }
+    .about-photo img {
+      position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+      display: block; z-index: 1;
+    }
+    .about-story-name { font-size: 2rem; font-weight: 800; color: var(--p-700); margin-bottom: 0.4rem; }
+    .tag { display: inline-block; background: linear-gradient(135deg, var(--p-500), var(--p-700)); color: white; font-weight: 700; font-size: 0.82rem; padding: 0.3rem 1.1rem; border-radius: 50px; margin-bottom: 2rem; }
+    .story-para { font-size: 0.93rem; color: #555; line-height: 1.9; }
+    .story-para strong { color: var(--p-700); font-weight: 600; }
+    .story-divider {
+      display: flex; align-items: center; gap: 0.7rem;
+      margin: 1.5rem 0;
+    }
+    .story-divider::before, .story-divider::after { content: ''; flex: 1; height: 1px; background: var(--p-200); }
+    .story-divider-dot { width: 6px; height: 6px; background: var(--p-400); border-radius: 50%; flex-shrink: 0; }
+
+    /* EXPERIENCE */
+    .exp-bg { background: var(--p-light); }
+    .timeline { position: relative; padding-left: 2.5rem; max-width: 800px; margin: 0 auto; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, var(--p-400), var(--p-700)); border-radius: 3px; }
+    .tl-item { position: relative; padding: 0 0 2.5rem 2rem; }
+    .tl-dot { position: absolute; left: -2.25rem; top: 0.35rem; width: 1.1rem; height: 1.1rem; background: var(--p-600); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 3px var(--p-400); }
+    .tl-date { font-size: 0.78rem; font-weight: 700; color: var(--p-600); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.25rem; }
+    .tl-role { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 0.15rem; }
+    .tl-co { font-size: 0.88rem; color: var(--p-500); font-weight: 600; margin-bottom: 0.6rem; }
+    .tl-list { list-style: none; }
+    .tl-list li { font-size: 0.83rem; color: #555; line-height: 1.65; padding-left: 1rem; position: relative; margin-bottom: 0.2rem; }
+    .tl-list li::before { content: '✦'; position: absolute; left: 0; color: var(--p-400); font-size: 0.6rem; top: 0.25rem; }
+
+    /* CASE STUDIES */
+    .cs-list { display: flex; flex-direction: column; }
+    .cs-item { padding: 3.5rem 0; border-bottom: 1px solid var(--p-200); }
+    .cs-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .cs-header { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 2rem; }
+    .cs-num { font-size: 3.2rem; font-weight: 900; color: var(--p-200); line-height: 1; min-width: 3rem; }
+    .cs-niche { display: inline-block; background: var(--p-light); color: var(--p-700); font-size: 0.68rem; font-weight: 700; padding: 0.25rem 0.9rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.1em; }
+    .cs-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: start; }
+    .cs-name { font-size: 1.55rem; font-weight: 800; color: var(--text); margin-bottom: 0.25rem; line-height: 1.2; }
+    .cs-location { font-size: 0.8rem; color: var(--p-500); font-weight: 500; margin-bottom: 1.1rem; }
+    .cs-overview { font-size: 0.88rem; color: #555; line-height: 1.82; margin-bottom: 1.5rem; }
+    .cs-label {
+      font-size: 0.65rem; font-weight: 700; color: var(--p-600); text-transform: uppercase;
+      letter-spacing: 0.14em; margin-bottom: 0.6rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .cs-label::after { content: ''; flex: 1; height: 1px; background: var(--p-200); }
+    .cs-bullets { list-style: none; margin-bottom: 0; }
+    .cs-bullets li { font-size: 0.84rem; color: #555; line-height: 1.72; padding-left: 1.2rem; position: relative; margin-bottom: 0.35rem; }
+    .cs-bullets li::before { content: '✦'; position: absolute; left: 0; color: var(--p-400); font-size: 0.55rem; top: 0.38rem; }
+    .cs-right { display: flex; flex-direction: column; gap: 1rem; }
+    .cs-img { border-radius: 14px; overflow: hidden; box-shadow: 0 10px 36px rgba(139,92,246,0.14); border: 1px solid var(--p-200); }
+    .cs-img img { width: 100%; height: auto; display: block; }
+    .cs-results { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+    .cs-result { background: var(--p-light); border-radius: 10px; padding: 0.6rem 1rem; }
+    .cs-result-val { font-size: 1.05rem; font-weight: 800; color: var(--p-700); line-height: 1; }
+    .cs-result-lbl { font-size: 0.63rem; color: #888; margin-top: 0.2rem; }
+    @media (max-width: 900px) {
+      .cs-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .cs-right { flex-direction: row; flex-wrap: wrap; }
+      .cs-img { flex: 1 1 100%; }
+    }
+
+    /* WEBSITES */
+    .web-bg { background: var(--p-light); }
+    .web-intro { text-align: center; max-width: 680px; margin: 0 auto 3rem; font-size: 0.95rem; color: #555; line-height: 1.8; }
+    .web-intro strong { color: var(--p-700); }
+    .web-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .web-card {
+      background: white; border: 1.5px solid var(--p-200); border-radius: 18px;
+      overflow: hidden; transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .web-card:hover { transform: translateY(-6px); box-shadow: 0 22px 50px rgba(139,92,246,0.13); }
+    .web-preview { display: block; position: relative; aspect-ratio: 16/10; overflow: hidden; text-decoration: none; }
+    .web-preview img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.5s ease; display: block; }
+    .web-card:hover .web-preview img { transform: scale(1.05); }
+    .web-overlay {
+      position: absolute; inset: 0;
+      background: rgba(126,34,206,0.55);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .web-overlay span { color: white; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.04em; }
+    .web-card:hover .web-overlay { opacity: 1; }
+    .web-info { padding: 1.1rem 1.3rem 1.3rem; }
+    .web-card-name { font-size: 0.98rem; font-weight: 700; color: var(--text); margin-bottom: 0.2rem; }
+    .web-card-loc { font-size: 0.75rem; color: #999; margin-bottom: 0.6rem; }
+    .web-link { font-size: 0.75rem; color: var(--p-600); font-weight: 500; text-decoration: none; }
+    .web-link:hover { text-decoration: underline; }
+
+    /* EVENT GALLERY */
+    .ev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .ev-card { position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; cursor: pointer; }
+    .ev-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+    .ev-card:hover img { transform: scale(1.06); }
+    .ev-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(74,16,114,0.85) 0%, transparent 100%);
+      color: white; font-size: 0.78rem; font-weight: 500;
+      padding: 1.5rem 0.9rem 0.8rem;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .ev-card:hover .ev-caption { opacity: 1; }
+    @media (max-width: 768px) { .ev-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    /* CONTACT */
+    .contact-bg {
+      background: linear-gradient(135deg, #ddb6f5 0%, #c084fc 45%, #9b59d0 75%, #7e22ce 100%);
+      position: relative; overflow: hidden; text-align: center;
+    }
+    .contact-bg::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px);
+      background-size: 64px 64px; pointer-events: none;
+    }
+    .contact-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+    .contact-avail {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.9); font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.4rem 1rem; border-radius: 50px; margin-bottom: 2rem;
+      backdrop-filter: blur(8px);
+    }
+    .contact-avail::before {
+      content: ''; width: 7px; height: 7px; background: #86efac;
+      border-radius: 50%; box-shadow: 0 0 8px #86efac;
+      animation: dotPulse 2.5s ease-in-out infinite alternate;
+    }
+    .contact-heading {
+      font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 900; color: white;
+      line-height: 1.0; letter-spacing: -0.025em; margin-bottom: 1.2rem;
+    }
+    .contact-sub {
+      font-size: 1rem; color: rgba(255,255,255,0.7);
+      line-height: 1.7; margin-bottom: 2.5rem;
+    }
+    .contact-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3.5rem; }
+    .btn-primary {
+      background: white; color: var(--p-700); font-weight: 700; font-size: 0.9rem;
+      padding: 0.85rem 2.2rem; border-radius: 12px; text-decoration: none;
+      transition: all 0.3s; border: 2px solid white;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .btn-primary:hover { background: transparent; color: white; box-shadow: none; }
+    .btn-secondary {
+      background: rgba(255,255,255,0.12); color: white; font-weight: 600; font-size: 0.9rem;
+      padding: 0.85rem 2.2rem; border-radius: 12px; text-decoration: none;
+      transition: all 0.3s; border: 2px solid rgba(255,255,255,0.35);
+      backdrop-filter: blur(8px);
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.22); }
+    .contact-info-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0; flex-wrap: wrap;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+    .ci {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.5rem 1.5rem; color: rgba(255,255,255,0.75);
+      font-size: 0.83rem; font-weight: 500;
+      border-right: 1px solid rgba(255,255,255,0.15);
+    }
+    .ci:last-child { border-right: none; }
+    .ci a { color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s; }
+    .ci a:hover { color: white; }
+    .ci-dot { font-size: 0.9rem; }
+
+    footer { background: var(--p-dark); color: rgba(255,255,255,0.4); text-align: center; padding: 1.2rem; font-size: 0.75rem; }
+
+    /* ANIMATIONS */
+    .fade { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade.on { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-photo-wrap { position: static; max-width: 260px; margin: 0 auto; }
+      .nav-links { display: none; }
+      .hero-metrics { gap: 1.5rem; }
+      .hero-bio { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-logo">Janny Vũ ✦</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">SEO Projects</a></li>
+    <li><a href="#websites">Websites</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <!-- Aurora blobs -->
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="hero-blob hero-blob-3"></div>
+  <div class="hero-blob hero-blob-4"></div>
+  <!-- Electric shimmer lines -->
+  <div class="hero-line" style="top:28%;width:160px;left:4%;--d:5s;--dl:0s;"></div>
+  <div class="hero-line" style="top:62%;width:110px;right:6%;--d:7s;--dl:2.2s;"></div>
+  <div class="hero-line" style="top:78%;width:80px;left:18%;--d:4.5s;--dl:1s;"></div>
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow">GLOBAL SEO &nbsp;•&nbsp; ORGANIC GROWTH &nbsp;•&nbsp; CONTENT STRATEGY</div>
+    <h1 class="hero-name">Janny Vũ</h1>
+    <div class="hero-role"><strong>SEO Specialist</strong> &amp; Organic Growth Strategist</div>
+    <p class="hero-bio">SEO professional with 4+ years of experience driving organic growth across finance, affiliate, and multilingual global markets through content strategy, technical SEO, and scalable search systems.</p>
+    <div class="hero-metrics">
+      <div>
+        <div class="hero-metric-val">4+</div>
+        <div class="hero-metric-lbl">Years Experience</div>
+      </div>
+      <div>
+        <div class="hero-metric-val">1M+</div>
+        <div class="hero-metric-lbl">Monthly Traffic</div>
+      </div>
+      <div>
+        <div class="hero-metric-val">15+</div>
+        <div class="hero-metric-lbl">Websites Built</div>
+      </div>
+      <div>
+        <div class="hero-metric-val">6</div>
+        <div class="hero-metric-lbl">Industries</div>
+      </div>
+    </div>
+    <div class="hero-btns">
+      <a href="#projects" class="btn btn-white">View Case Studies</a>
+      <a href="#contact" class="btn btn-outline">Contact Me</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="sec-head fade">
+      <div class="sec-bar"></div>
+      <div class="sec-num">01</div>
+      <h2 class="sec-title">About Me</h2>
+    </div>
+    <div class="about-grid">
+
+      <div class="about-photo-wrap fade">
+        <div class="about-photo">
+          <img src="photo.png" alt="Janny Vũ — SEO Specialist & Organic Growth Strategist">
+        </div>
+      </div>
+
+      <div class="fade">
+        <div class="about-story-name">Janny Vũ</div>
+        <span class="tag">SEO Specialist &amp; Organic Growth Strategist</span>
+
+        <p class="story-para">Over the past <strong>4+ years</strong>, I've been working in SEO across global markets — from <strong>finance and affiliate projects</strong> to multilingual content systems and international search strategies.</p>
+
+        <div class="story-divider"><div class="story-divider-dot"></div></div>
+
+        <p class="story-para">What started as an interest in how people discover information online gradually became a deeper focus on building <strong>sustainable organic growth</strong>. Beyond rankings and traffic, I enjoy understanding how content, structure, and search behavior connect to create <strong>long-term digital visibility</strong>.</p>
+
+        <div class="story-divider"><div class="story-divider-dot"></div></div>
+
+        <p class="story-para">My experience has grown beyond execution into <strong>strategy, process building, and managing SEO operations</strong> across different markets and teams. I'm especially interested in scalable SEO systems, content strategy, and creating structures that <strong>continue to grow even after implementation</strong>.</p>
+
+        <div class="story-divider"><div class="story-divider-dot"></div></div>
+
+        <p class="story-para">Outside of work, I enjoy <strong>traveling, reading</strong>, and learning through conversations with people from different cultures — experiences that continue to shape the way I think about communication, users, and digital growth.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="exp-bg" id="experience">
+  <div class="container">
+    <div class="sec-head fade">
+      <div class="sec-bar"></div>
+      <div class="sec-num">02</div>
+      <h2 class="sec-title">What I've Done</h2>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item fade">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Dec 2025 — Present</div>
+        <div class="tl-role">SEO Team Lead</div>
+        <div class="tl-co">WeCopyTrade</div>
+        <ul class="tl-list">
+          <li>Leading SEO strategy and execution for multiple international markets</li>
+          <li>Managing and mentoring SEO team members to ensure project quality and performance</li>
+          <li>Building AI-driven processes for content research, workflow optimization, and task management</li>
+          <li>Analyzing data from Google Search Console, GA4, Ahrefs, and other SEO tools</li>
+          <li>Supporting business growth through scalable and long-term SEO planning</li>
+        </ul>
+      </div>
+
+      <div class="tl-item fade">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Aug 2025 — Dec 2025</div>
+        <div class="tl-role">SEO Specialist</div>
+        <div class="tl-co">WeCopyTrade</div>
+        <ul class="tl-list">
+          <li>Managed and coordinated with SEO agencies for multiple projects and campaigns</li>
+          <li>Monitored SEO performance, traffic growth, and campaign results</li>
+          <li>Evaluated and selected local agencies by analyzing proposals, strategies, and expected outcomes</li>
+        </ul>
+      </div>
+
+      <div class="tl-item fade">
+        <div class="tl-dot"></div>
+        <div class="tl-date">June 2024 — Aug 2025</div>
+        <div class="tl-role">SEO Specialist</div>
+        <div class="tl-co">Detailers Movement International</div>
+        <ul class="tl-list">
+          <li>Managed SEO for multiple US-based car detailing clients</li>
+          <li>Led Love's Auto Detail to 13.4K clicks and 1.06M impressions in 16 months</li>
+          <li>Built Wax Masters Detailing from zero visibility to competitive local rankings</li>
+        </ul>
+      </div>
+
+      <div class="tl-item fade">
+        <div class="tl-dot"></div>
+        <div class="tl-date">June 2023 — May 2024</div>
+        <div class="tl-role">SEO - Marketing Executive</div>
+        <div class="tl-co">Thami Shipping & Airfreight Corp.</div>
+        <ul class="tl-list">
+          <li>Planned and executed all SEO onpage tasks for Thamico website</li>
+          <li>Achieved top keyword rankings driving significant traffic to the site</li>
+          <li>Created design assets and company introduction videos for sales teams</li>
+        </ul>
+      </div>
+
+      <div class="tl-item fade">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Apr 2022 — May 2023</div>
+        <div class="tl-role">SEO Executive</div>
+        <div class="tl-co">Interate Corp.</div>
+        <ul class="tl-list">
+          <li>Worked on multiple affiliate and SEO-driven content projects across different niches</li>
+          <li>Managed SEO optimization, content planning, and organic growth strategies for affiliate websites</li>
+          <li>Increased Get Freebies Today organic traffic by 600%, generating 2,000+ leads and over $10K in revenue</li>
+          <li>Supported keyword research, content structure optimization, and off-page SEO activities</li>
+        </ul>
+      </div>
+
+      <div class="tl-item fade">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Dec 2021 — Feb 2022</div>
+        <div class="tl-role">SEO Off-page Collaborator</div>
+        <div class="tl-co">Astronet Media</div>
+        <ul class="tl-list">
+          <li>Executed off-page SEO strategies focused on backlink acquisition and website authority growth</li>
+          <li>Researched and identified relevant websites for backlink placement and guest post opportunities</li>
+          <li>Conducted outreach campaigns and communicated directly with niche website owners for collaborations</li>
+          <li>Negotiated pricing and partnership terms for guest posts and sponsored backlinks</li>
+          <li>Supported authority-building campaigns for large-scale content websites, including Health Canal</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SEO PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="sec-head fade">
+      <div class="sec-bar"></div>
+      <div class="sec-num">03</div>
+      <h2 class="sec-title">SEO Projects</h2>
+    </div>
+    <div class="cs-list">
+
+      <!-- 01 Love's Auto Detail -->
+      <div class="cs-item fade">
+        <div class="cs-header">
+          <span class="cs-num">01</span>
+          <span class="cs-niche">Local SEO · Car Detailing</span>
+        </div>
+        <div class="cs-grid">
+          <div>
+            <div class="cs-name">Love's Auto Detail</div>
+            <div class="cs-location">📍 Kapolei, Hawaii</div>
+            <p class="cs-overview">A well-known car detailing business in Hawaii where local visibility and reputation play a major role in attracting customers. The primary goal was to strengthen visibility within surrounding service areas and improve map-related search performance.</p>
+            <div class="cs-label">What I Did</div>
+            <ul class="cs-bullets">
+              <li>Optimized local landing pages for high-intent queries such as "car detailing near me" and "ceramic coating near me"</li>
+              <li>Strengthened Google Business Profile signals and improved map-based search performance</li>
+              <li>Improved website structure, keyword targeting, and local search presence across service areas</li>
+              <li>Built organic visibility across both search results and Google Maps</li>
+            </ul>
+          </div>
+          <div class="cs-right">
+            <div class="cs-img"><img src="cs-loves.png" alt="Love's Auto Detail SEO results"></div>
+            <div class="cs-results">
+              <div class="cs-result"><div class="cs-result-val">13.4K</div><div class="cs-result-lbl">Total Clicks</div></div>
+              <div class="cs-result"><div class="cs-result-val">1.06M</div><div class="cs-result-lbl">Impressions</div></div>
+              <div class="cs-result"><div class="cs-result-val">Pos. 27</div><div class="cs-result-lbl">Avg Position</div></div>
+              <div class="cs-result"><div class="cs-result-val">Referrals</div><div class="cs-result-lbl">Client Network Growth</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 Wax Master Detailing -->
+      <div class="cs-item fade">
+        <div class="cs-header">
+          <span class="cs-num">02</span>
+          <span class="cs-niche">Local SEO · Car Detailing</span>
+        </div>
+        <div class="cs-grid">
+          <div>
+            <div class="cs-name">Wax Master Detailing</div>
+            <div class="cs-location">📍 Rockaway, New Jersey</div>
+            <p class="cs-overview">A challenging local SEO project within the automotive detailing industry where competition for local search visibility was highly competitive. The business had limited local search presence and weak visibility on both organic results and Google Maps before the project began.</p>
+            <div class="cs-label">What I Did</div>
+            <ul class="cs-bullets">
+              <li>Improved local SEO structure and optimized service pages for intent-based keywords ("car detailing near me", "paint correction near me")</li>
+              <li>Strengthened location relevance and Google Business Profile performance</li>
+              <li>Built a scalable website structure for local search from ground up</li>
+              <li>Developed improved rankings across both website search results and map-based searches</li>
+            </ul>
+          </div>
+          <div class="cs-right">
+            <div class="cs-img"><img src="cs-wax.png" alt="Wax Master Detailing SEO results"></div>
+            <div class="cs-results">
+              <div class="cs-result"><div class="cs-result-val">1.17K</div><div class="cs-result-lbl">Total Clicks</div></div>
+              <div class="cs-result"><div class="cs-result-val">136K</div><div class="cs-result-lbl">Impressions</div></div>
+              <div class="cs-result"><div class="cs-result-val">Pos. 20</div><div class="cs-result-lbl">Avg Position</div></div>
+              <div class="cs-result"><div class="cs-result-val">0 → Rank</div><div class="cs-result-lbl">Ground-Up Build</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 WeMasterTrade -->
+      <div class="cs-item fade">
+        <div class="cs-header">
+          <span class="cs-num">03</span>
+          <span class="cs-niche">International SEO · FinTech</span>
+        </div>
+        <div class="cs-grid">
+          <div>
+            <div class="cs-name">WeMasterTrade</div>
+            <div class="cs-location">📍 Multiple International Markets</div>
+            <p class="cs-overview">Building and scaling SEO operations across multiple international markets, with a strong focus on multilingual and region-based SEO strategies. The goal evolved from establishing local visibility in new markets to transitioning toward a fully internal, scalable SEO operation.</p>
+            <div class="cs-label">What I Did</div>
+            <ul class="cs-bullets">
+              <li>Researched and evaluated local SEO agencies across global markets — reviewed proposals, assessed strategic fit, and allocated budgets</li>
+              <li>Monitored performance across markets and ensured agency deliverables aligned with growth targets</li>
+              <li>Led transition from external agencies to an internal SEO structure to optimize costs and scalability</li>
+              <li>Rebuilt SEO workflows internally with AI-supported content systems and cross-team collaboration</li>
+            </ul>
+          </div>
+          <div class="cs-right">
+            <div class="cs-img"><img src="cs-wemastertrade.png" alt="WeMasterTrade SEO results"></div>
+            <div class="cs-results">
+              <div class="cs-result"><div class="cs-result-val">Multi-Market</div><div class="cs-result-lbl">Global Expansion</div></div>
+              <div class="cs-result"><div class="cs-result-val">Agency → In-house</div><div class="cs-result-lbl">Operational Transition</div></div>
+              <div class="cs-result"><div class="cs-result-val">AI Workflows</div><div class="cs-result-lbl">Systems Built</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 Toolmart -->
+      <div class="cs-item fade">
+        <div class="cs-header">
+          <span class="cs-num">04</span>
+          <span class="cs-niche">eCommerce SEO</span>
+        </div>
+        <div class="cs-grid">
+          <div>
+            <div class="cs-name">Toolmart</div>
+            <div class="cs-location">📍 United States</div>
+            <p class="cs-overview">An established eCommerce business with a physical store generating over $1M in annual revenue. As the business expanded online, the goal was to build a strong organic foundation to drive digital sales and long-term search visibility.</p>
+            <div class="cs-label">What I Did</div>
+            <ul class="cs-bullets">
+              <li>Optimized category structure and product pages for eCommerce SEO and high-intent search queries</li>
+              <li>Built a scalable internal linking strategy and keyword targeting framework</li>
+              <li>Improved overall organic search visibility and created a content ecosystem for long-term growth</li>
+              <li>Structured the site to attract purchase-intent traffic and convert organic visitors into sales</li>
+            </ul>
+          </div>
+          <div class="cs-right">
+            <div class="cs-img"><img src="cs-toolmart.png" alt="Toolmart SEO results"></div>
+            <div class="cs-results">
+              <div class="cs-result"><div class="cs-result-val">$7K+</div><div class="cs-result-lbl">Monthly Revenue (Month 3)</div></div>
+              <div class="cs-result"><div class="cs-result-val">Organic</div><div class="cs-result-lbl">Primary Traffic Source</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 K Gown -->
+      <div class="cs-item fade">
+        <div class="cs-header">
+          <span class="cs-num">05</span>
+          <span class="cs-niche">Local SEO · Bridal / Wedding</span>
+        </div>
+        <div class="cs-grid">
+          <div>
+            <div class="cs-name">K Gown</div>
+            <div class="cs-location">📍 Singapore</div>
+            <p class="cs-overview">A local bridal dress rental and wedding gown store operating in Singapore's highly competitive market, where visual branding and local search visibility are especially important for customer discovery.</p>
+            <div class="cs-label">What I Did</div>
+            <ul class="cs-bullets">
+              <li>Optimized service and category pages for high-intent bridal and wedding-related local searches</li>
+              <li>Improved local keyword targeting and on-page SEO for the Singapore market</li>
+              <li>Created a more organized content structure to support long-term organic growth</li>
+              <li>Enhanced website experience to align with user search intent and customer decision-making in the wedding industry</li>
+            </ul>
+          </div>
+          <div class="cs-right">
+            <div class="cs-img"><img src="cs-kgown.png" alt="K Gown SEO results"></div>
+            <div class="cs-results">
+              <div class="cs-result"><div class="cs-result-val">Singapore</div><div class="cs-result-lbl">Local Market</div></div>
+              <div class="cs-result"><div class="cs-result-val">Bridal SEO</div><div class="cs-result-lbl">Niche Visibility</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 06 Kenwood -->
+      <div class="cs-item fade">
+        <div class="cs-header">
+          <span class="cs-num">06</span>
+          <span class="cs-niche">Local SEO · Finance</span>
+        </div>
+        <div class="cs-grid">
+          <div>
+            <div class="cs-name">Kenwood CPA</div>
+            <div class="cs-location">📍 Houston, Texas</div>
+            <p class="cs-overview">A financial consulting and accounting service in Houston's highly competitive local finance market, where trust, authority, and search visibility are critical for attracting potential clients.</p>
+            <div class="cs-label">What I Did</div>
+            <ul class="cs-bullets">
+              <li>Built website SEO authority through strategic content development around accounting, CPA, and financial consulting topics</li>
+              <li>Optimized service pages and improved topical relevance within the finance niche</li>
+              <li>Achieved rankings for competitive local terms including "CPA Houston" and surrounding service queries</li>
+              <li>Developed informational content strategy to expand organic reach across multiple search intent stages</li>
+            </ul>
+          </div>
+          <div class="cs-right">
+            <div class="cs-img"><img src="cs-kenwood.png" alt="Kenwood CPA SEO results"></div>
+            <div class="cs-results">
+              <div class="cs-result"><div class="cs-result-val">1.1K</div><div class="cs-result-lbl">Total Clicks</div></div>
+              <div class="cs-result"><div class="cs-result-val">360K</div><div class="cs-result-lbl">Impressions</div></div>
+              <div class="cs-result"><div class="cs-result-val">"CPA Houston"</div><div class="cs-result-lbl">Competitive Keyword Ranked</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WEBSITE PROJECTS -->
+<section class="web-bg" id="websites">
+  <div class="container">
+    <div class="sec-head fade">
+      <div class="sec-bar"></div>
+      <div class="sec-num">04</div>
+      <h2 class="sec-title">Website Projects</h2>
+    </div>
+    <p class="web-intro fade">
+      Built and customized <strong>15+ websites</strong> using WordPress and Elementor — from initial setup and design to SEO-ready structure and client-specific customization. Below are some featured websites. Hover to preview each site.
+    </p>
+    <div class="web-grid fade">
+
+      <div class="web-card">
+        <a href="https://tailoredautosalon.com/" target="_blank" rel="noopener" class="web-preview">
+          <img src="https://image.thum.io/get/width/1200/crop/800/https://tailoredautosalon.com/" alt="Tailored Auto Salon" loading="lazy">
+          <div class="web-overlay"><span>Visit Site ↗</span></div>
+        </a>
+        <div class="web-info">
+          <div class="web-card-name">Tailored Auto Salon</div>
+          <div class="web-card-loc">📍 Orlando, FL · Auto Detailing</div>
+          <a href="https://tailoredautosalon.com/" target="_blank" rel="noopener" class="web-link">tailoredautosalon.com ↗</a>
+        </div>
+      </div>
+
+      <div class="web-card">
+        <a href="https://radautodetailing.com/" target="_blank" rel="noopener" class="web-preview">
+          <img src="https://image.thum.io/get/width/1200/crop/800/https://radautodetailing.com/" alt="RAD Auto Detailing" loading="lazy">
+          <div class="web-overlay"><span>Visit Site ↗</span></div>
+        </a>
+        <div class="web-info">
+          <div class="web-card-name">RAD Auto Detailing</div>
+          <div class="web-card-loc">📍 Safford, AZ · Auto Detailing</div>
+          <a href="https://radautodetailing.com/" target="_blank" rel="noopener" class="web-link">radautodetailing.com ↗</a>
+        </div>
+      </div>
+
+      <div class="web-card">
+        <a href="https://slickmds.com/" target="_blank" rel="noopener" class="web-preview">
+          <img src="https://image.thum.io/get/width/1200/crop/800/https://slickmds.com/" alt="Slick Mobile Detail" loading="lazy">
+          <div class="web-overlay"><span>Visit Site ↗</span></div>
+        </a>
+        <div class="web-info">
+          <div class="web-card-name">Slick Mobile Detail</div>
+          <div class="web-card-loc">📍 Billings, MT · Mobile Detailing</div>
+          <a href="https://slickmds.com/" target="_blank" rel="noopener" class="web-link">slickmds.com ↗</a>
+        </div>
+      </div>
+
+      <div class="web-card">
+        <a href="https://waynesvillemobiledetailing.com/" target="_blank" rel="noopener" class="web-preview">
+          <img src="https://image.thum.io/get/width/1200/crop/800/https://waynesvillemobiledetailing.com/" alt="Waynesville Mobile Detailing" loading="lazy">
+          <div class="web-overlay"><span>Visit Site ↗</span></div>
+        </a>
+        <div class="web-info">
+          <div class="web-card-name">Waynesville Mobile Detailing</div>
+          <div class="web-card-loc">📍 Waynesville, NC · Mobile Detailing</div>
+          <a href="https://waynesvillemobiledetailing.com/" target="_blank" rel="noopener" class="web-link">waynesvillemobiledetailing.com ↗</a>
+        </div>
+      </div>
+
+
+      <div class="web-card">
+        <a href="https://www.kgown.com/" target="_blank" rel="noopener" class="web-preview">
+          <img src="https://image.thum.io/get/width/1200/crop/800/https://www.kgown.com/" alt="K Gown" loading="lazy">
+          <div class="web-overlay"><span>Visit Site ↗</span></div>
+        </a>
+        <div class="web-info">
+          <div class="web-card-name">K Gown</div>
+          <div class="web-card-loc">📍 Singapore · Bridal & Wedding</div>
+          <a href="https://www.kgown.com/" target="_blank" rel="noopener" class="web-link">kgown.com ↗</a>
+        </div>
+      </div>
+
+      <div class="web-card">
+        <a href="https://www.kenwoodpc.com/" target="_blank" rel="noopener" class="web-preview">
+          <img src="https://image.thum.io/get/width/1200/crop/800/https://www.kenwoodpc.com/" alt="Kenwood CPA" loading="lazy">
+          <div class="web-overlay"><span>Visit Site ↗</span></div>
+        </a>
+        <div class="web-info">
+          <div class="web-card-name">Kenwood CPA</div>
+          <div class="web-card-loc">📍 Houston, TX · Finance & Accounting</div>
+          <a href="https://www.kenwoodpc.com/" target="_blank" rel="noopener" class="web-link">kenwoodpc.com ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EVENT PLANNER -->
+<section id="events">
+  <div class="container">
+    <div class="sec-head fade">
+      <div class="sec-bar"></div>
+      <div class="sec-num">05</div>
+      <h2 class="sec-title">Event Planner</h2>
+    </div>
+    <p class="web-intro fade" style="margin-bottom:2.5rem;">
+      Actively participated in the main organizing committee — from program ideation, budget management, and vendor coordination (sound, lighting, banquet halls) to developing the full program timeline.
+    </p>
+    <div class="ev-grid fade">
+      <div class="ev-card">
+        <img src="team-building.png" alt="Team Building & Gala Dinner">
+        <div class="ev-caption">Team Building &amp; Gala Dinner — TMC 25th Anniversary</div>
+      </div>
+      <div class="ev-card">
+        <img src="team-building-1.png" alt="Team Building & Gala Dinner">
+        <div class="ev-caption">Team Building &amp; Gala Dinner — TMC 25th Anniversary</div>
+      </div>
+      <div class="ev-card">
+        <img src="team-building-2.png" alt="Team Building & Gala Dinner">
+        <div class="ev-caption">Team Building &amp; Gala Dinner — TMC 25th Anniversary</div>
+      </div>
+      <div class="ev-card">
+        <img src="event-womens-day-1.jpg" alt="International Women's Day">
+        <div class="ev-caption">International Women's Day · Culinary Festival</div>
+      </div>
+      <div class="ev-card">
+        <img src="event-womens-day-2.jpg" alt="International Women's Day">
+        <div class="ev-caption">International Women's Day · Culinary Festival</div>
+      </div>
+      <div class="ev-card">
+        <img src="event-womens-day-3.jpg" alt="International Women's Day">
+        <div class="ev-caption">International Women's Day · Culinary Festival</div>
+      </div>
+      <div class="ev-card">
+        <img src="event-marathon-1.jpg" alt="Online Marathon Competition">
+        <div class="ev-caption">Online Marathon Competition · Strava App</div>
+      </div>
+      <div class="ev-card">
+        <img src="event-marathon-2.jpg" alt="Online Marathon Competition">
+        <div class="ev-caption">Online Marathon Competition · Strava App</div>
+      </div>
+      <div class="ev-card">
+        <img src="event-marathon-3.jpg" alt="Online Marathon Competition">
+        <div class="ev-caption">Online Marathon Competition · Strava App</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-bg" id="contact">
+  <div class="container">
+    <div class="contact-inner fade">
+      <div class="contact-avail">Available for New Opportunities</div>
+      <h2 class="contact-heading">Let's Work<br>Together</h2>
+      <p class="contact-sub">Open to SEO consulting, full-time roles, and long-term collaborations across global markets.</p>
+      <div class="contact-btns">
+        <a href="mailto:jannyvu14100@gmail.com" class="btn-primary">Send an Email →</a>
+        <a href="https://linkedin.com/in/janny-vu" target="_blank" rel="noopener" class="btn-secondary">LinkedIn ↗</a>
+      </div>
+      <div class="contact-info-row">
+        <div class="ci"><span class="ci-dot">📞</span><a href="tel:0522933064">0522 933 064</a></div>
+        <div class="ci"><span class="ci-dot">✉️</span><a href="mailto:jannyvu14100@gmail.com">jannyvu14100@gmail.com</a></div>
+        <div class="ci"><span class="ci-dot">📍</span>District 1, HCM City</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Janny Vũ &nbsp;✦&nbsp; SEO Specialist &amp; Organic Growth Strategist</p>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
