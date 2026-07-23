@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Janny Vũ — SEO Specialist & Organic Growth Strategist</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --p-light: #f3e8ff;
@@ -16,15 +16,10 @@
       --p-dark: #4a1072;
       --white: #ffffff;
       --text: #1e0a3c;
-      --amber: #f59e0b;
-      --amber-light: #fef3c7;
-      --amber-dark: #d97706;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
-    h1, h2, h3, .nav-logo, .hero-name, .sec-title, .contact-heading,
-    .about-story-name, .cs-name, .tl-role { font-family: 'Syne', sans-serif; }
+    body { font-family: 'Poppins', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
 
     /* NAV */
     nav {
@@ -35,10 +30,8 @@
     }
     .nav-logo { font-weight: 800; font-size: 1.1rem; color: var(--p-700); letter-spacing: 0.02em; }
     .nav-links { display: flex; gap: 1.8rem; list-style: none; }
-    .nav-links a { text-decoration: none; color: var(--text); font-size: 0.82rem; font-weight: 500; transition: color 0.2s; position: relative; }
+    .nav-links a { text-decoration: none; color: var(--text); font-size: 0.82rem; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--p-600); }
-    .nav-links a.active { color: var(--p-600); font-weight: 600; }
-    .nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%); width: 4px; height: 4px; background: var(--p-500); border-radius: 50%; }
 
     /* HERO */
     .hero {
@@ -115,8 +108,8 @@
       line-height: 1.0; letter-spacing: -0.025em; margin-bottom: 0.9rem;
     }
     .hero-role {
-      font-size: clamp(1rem, 2vw, 1.25rem); font-weight: 700;
-      color: white; margin-bottom: 1.6rem; line-height: 1.5; letter-spacing: 0.01em;
+      font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 400;
+      color: rgba(255,255,255,0.75); margin-bottom: 1.6rem; line-height: 1.5;
     }
     .hero-role strong { color: white; font-weight: 700; }
     .hero-bio {
@@ -142,25 +135,11 @@
 
     /* LAYOUT */
     section { padding: 5.5rem 2rem; }
-    #about { background: linear-gradient(160deg, #ffffff 0%, #fdf8ff 100%); }
     .container { max-width: 1100px; margin: 0 auto; }
     .sec-head { text-align: center; margin-bottom: 3.5rem; }
     .sec-bar { height: 5px; width: 60px; background: linear-gradient(to right, var(--p-400), var(--p-700)); border-radius: 3px; margin: 0 auto 0.8rem; }
-    .sec-num { font-size: 6rem; font-weight: 800; line-height: 1; color: transparent; -webkit-text-stroke: 2px var(--p-300); }
-    .sec-title {
-      font-size: clamp(2rem, 5vw, 3rem); font-weight: 800;
-      background: linear-gradient(135deg, var(--p-600) 0%, var(--p-dark) 100%);
-      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-      text-transform: uppercase; letter-spacing: 0.06em; margin-top: -1.4rem;
-      display: inline-block; position: relative;
-    }
-    .sec-title::after {
-      content: ''; position: absolute; bottom: -6px; left: 0;
-      height: 3px; width: 0; border-radius: 2px;
-      background: linear-gradient(to right, var(--p-400), var(--p-700));
-      transition: width 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.25s;
-    }
-    .sec-head.on .sec-title::after { width: 100%; }
+    .sec-num { font-size: 5rem; font-weight: 900; color: var(--p-200); line-height: 1; }
+    .sec-title { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; color: var(--p-700); text-transform: uppercase; letter-spacing: 0.06em; margin-top: -1.2rem; }
 
     /* ABOUT */
     .about-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 5rem; align-items: start; }
@@ -197,178 +176,74 @@
     .story-divider-dot { width: 6px; height: 6px; background: var(--p-400); border-radius: 50%; flex-shrink: 0; }
 
     /* EXPERIENCE */
-    .exp-bg { background: linear-gradient(160deg, #f5eeff 0%, #ede9fe 55%, #fef9ec 100%); }
-    .tl-cards { display: flex; flex-direction: column; gap: 0.85rem; max-width: 860px; margin: 0 auto; }
-    .tl-card {
-      display: grid; grid-template-columns: 70px 1fr;
-      border-radius: 16px; overflow: hidden;
-      background: white;
-      box-shadow: 0 2px 20px rgba(139,92,246,0.07);
-      border: 1px solid var(--p-200);
-      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s, border-color 0.35s;
-    }
-    .tl-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(139,92,246,0.2); border-color: var(--p-400); }
-    .tl-card.fade { transform: translateX(-30px); }
-    .tl-card.fade.on { transform: translateX(0); }
-    .tl-cards .tl-card:nth-child(2).fade { transition-delay: 0.08s; }
-    .tl-cards .tl-card:nth-child(3).fade { transition-delay: 0.16s; }
-    .tl-cards .tl-card:nth-child(4).fade { transition-delay: 0.24s; }
-    .tl-cards .tl-card:nth-child(5).fade { transition-delay: 0.32s; }
-    .tl-cards .tl-card:nth-child(6).fade { transition-delay: 0.40s; }
-    .tl-num {
-      background: linear-gradient(180deg, var(--p-400) 0%, var(--p-dark) 100%);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Syne', sans-serif; font-size: 1.35rem; font-weight: 800; color: white;
-      position: relative;
-    }
-    .tl-num::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
-    }
-    .tl-body { padding: 1.25rem 1.5rem; }
-    .tl-meta { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.3rem; flex-wrap: wrap; }
-    .tl-date { font-size: 0.72rem; font-weight: 600; color: var(--p-600); text-transform: uppercase; letter-spacing: 0.08em; }
-    .tl-badge {
-      font-size: 0.6rem; font-weight: 700;
-      background: var(--amber-light); color: var(--amber-dark);
-      padding: 0.15rem 0.65rem; border-radius: 20px;
-      text-transform: uppercase; letter-spacing: 0.1em;
-    }
-    .tl-role { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.1rem; }
-    .tl-co { font-size: 0.84rem; color: var(--p-500); font-weight: 600; margin-bottom: 0.65rem; }
+    .exp-bg { background: var(--p-light); }
+    .timeline { position: relative; padding-left: 2.5rem; max-width: 800px; margin: 0 auto; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, var(--p-400), var(--p-700)); border-radius: 3px; }
+    .tl-item { position: relative; padding: 0 0 2.5rem 2rem; }
+    .tl-dot { position: absolute; left: -2.25rem; top: 0.35rem; width: 1.1rem; height: 1.1rem; background: var(--p-600); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 3px var(--p-400); }
+    .tl-date { font-size: 0.78rem; font-weight: 700; color: var(--p-600); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.25rem; }
+    .tl-role { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 0.15rem; }
+    .tl-co { font-size: 0.88rem; color: var(--p-500); font-weight: 600; margin-bottom: 0.6rem; }
     .tl-list { list-style: none; }
-    .tl-list li { font-size: 0.82rem; color: #555; line-height: 1.65; padding-left: 1rem; position: relative; margin-bottom: 0.2rem; }
-    .tl-list li::before { content: '✦'; position: absolute; left: 0; color: var(--p-400); font-size: 0.55rem; top: 0.28rem; }
-    @media (max-width: 600px) { .tl-card { grid-template-columns: 50px 1fr; } .tl-num { font-size: 1rem; } }
+    .tl-list li { font-size: 0.83rem; color: #555; line-height: 1.65; padding-left: 1rem; position: relative; margin-bottom: 0.2rem; }
+    .tl-list li::before { content: '✦'; position: absolute; left: 0; color: var(--p-400); font-size: 0.6rem; top: 0.25rem; }
 
-    /* CASE STUDIES — UNIVERSE */
-    #projects {
-      background: linear-gradient(160deg, #0d0120 0%, #160438 50%, #080118 100%);
-      position: relative; overflow: hidden;
-    }
-    #projects .sec-num { -webkit-text-stroke: 2px rgba(192,132,252,0.3); }
-    #projects .sec-title {
-      background: linear-gradient(135deg, #e9d5ff 0%, #ffffff 100%);
-      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    #projects .sec-bar { background: linear-gradient(to right, var(--p-400), rgba(255,255,255,0.55)); }
-    #projects .sec-head.on .sec-title::after { background: linear-gradient(to right, var(--p-400), white); }
-
-    @keyframes nebulaFloat {
-      0%   { transform: translate(0,0) scale(1); opacity: 1; }
-      100% { transform: translate(28px,-38px) scale(1.14); opacity: 0.7; }
-    }
-    @keyframes twinkle {
-      0%   { opacity: 0.04; transform: scale(0.7); }
-      100% { opacity: 0.88; transform: scale(1.5); }
-    }
-
-    .cs-list { display: flex; flex-direction: column; gap: 1.2rem; }
-    .cs-item {
-      position: relative; z-index: 1;
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-left: 3px solid var(--cs-accent, #c084fc);
-      border-radius: 20px; padding: 2.5rem;
-      transition: background 0.35s, box-shadow 0.35s;
-    }
-    .cs-item:hover { background: rgba(255,255,255,0.09); box-shadow: 0 24px 70px rgba(0,0,0,0.55); }
-    .cs-item:nth-child(1) { --cs-accent: #c084fc; }
-    .cs-item:nth-child(2) { --cs-accent: #f59e0b; }
-    .cs-item:nth-child(3) { --cs-accent: #06b6d4; }
-    .cs-item:nth-child(4) { --cs-accent: #f472b6; }
-    .cs-item:nth-child(5) { --cs-accent: #a78bfa; }
-    .cs-item:nth-child(6) { --cs-accent: #34d399; }
-    /* alternating slide direction */
-    .cs-item:nth-child(odd).fade  { transform: translateX(-35px); }
-    .cs-item:nth-child(even).fade { transform: translateX(35px); }
-    .cs-item.fade.on { transform: translateX(0); }
-
+    /* CASE STUDIES */
+    .cs-list { display: flex; flex-direction: column; }
+    .cs-item { padding: 3.5rem 0; border-bottom: 1px solid var(--p-200); }
+    .cs-item:last-child { border-bottom: none; padding-bottom: 0; }
     .cs-header { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 2rem; }
-    .cs-num {
-      font-size: 3.2rem; font-weight: 900; color: transparent;
-      -webkit-text-stroke: 2px var(--cs-accent, rgba(192,132,252,0.5));
-      line-height: 1; min-width: 3rem;
-    }
-    .cs-niche {
-      display: inline-block;
-      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
-      color: rgba(255,255,255,0.72); font-size: 0.68rem; font-weight: 700;
-      padding: 0.28rem 0.9rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.1em;
-    }
-    .cs-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3rem; align-items: start; }
-    .cs-name { font-size: 1.5rem; font-weight: 800; color: white; margin-bottom: 0.25rem; line-height: 1.2; }
-    .cs-location { font-size: 0.8rem; color: rgba(255,255,255,0.38); font-weight: 500; margin-bottom: 1.1rem; }
-    .cs-overview { font-size: 0.87rem; color: rgba(255,255,255,0.6); line-height: 1.85; margin-bottom: 1.5rem; }
+    .cs-num { font-size: 3.2rem; font-weight: 900; color: var(--p-200); line-height: 1; min-width: 3rem; }
+    .cs-niche { display: inline-block; background: var(--p-light); color: var(--p-700); font-size: 0.68rem; font-weight: 700; padding: 0.25rem 0.9rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.1em; }
+    .cs-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: start; }
+    .cs-name { font-size: 1.55rem; font-weight: 800; color: var(--text); margin-bottom: 0.25rem; line-height: 1.2; }
+    .cs-location { font-size: 0.8rem; color: var(--p-500); font-weight: 500; margin-bottom: 1.1rem; }
+    .cs-overview { font-size: 0.88rem; color: #555; line-height: 1.82; margin-bottom: 1.5rem; }
     .cs-label {
-      font-size: 0.65rem; font-weight: 700; color: rgba(255,255,255,0.38); text-transform: uppercase;
+      font-size: 0.65rem; font-weight: 700; color: var(--p-600); text-transform: uppercase;
       letter-spacing: 0.14em; margin-bottom: 0.6rem;
       display: flex; align-items: center; gap: 0.6rem;
     }
-    .cs-label::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+    .cs-label::after { content: ''; flex: 1; height: 1px; background: var(--p-200); }
     .cs-bullets { list-style: none; margin-bottom: 0; }
-    .cs-bullets li { font-size: 0.84rem; color: rgba(255,255,255,0.6); line-height: 1.72; padding-left: 1.2rem; position: relative; margin-bottom: 0.35rem; }
-    .cs-bullets li::before { content: '✦'; position: absolute; left: 0; color: var(--cs-accent, var(--p-400)); font-size: 0.55rem; top: 0.38rem; }
+    .cs-bullets li { font-size: 0.84rem; color: #555; line-height: 1.72; padding-left: 1.2rem; position: relative; margin-bottom: 0.35rem; }
+    .cs-bullets li::before { content: '✦'; position: absolute; left: 0; color: var(--p-400); font-size: 0.55rem; top: 0.38rem; }
     .cs-right { display: flex; flex-direction: column; gap: 1rem; }
-    .cs-img { border-radius: 14px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); }
+    .cs-img { border-radius: 14px; overflow: hidden; box-shadow: 0 10px 36px rgba(139,92,246,0.14); border: 1px solid var(--p-200); }
     .cs-img img { width: 100%; height: auto; display: block; }
     .cs-results { display: flex; gap: 0.7rem; flex-wrap: wrap; }
-    .cs-result { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.09); border-radius: 10px; padding: 0.65rem 1rem; }
-    .cs-result-val { font-size: 1.05rem; font-weight: 800; color: var(--cs-accent, var(--amber)); line-height: 1; }
-    .cs-result-lbl { font-size: 0.63rem; color: rgba(255,255,255,0.38); margin-top: 0.2rem; }
+    .cs-result { background: var(--p-light); border-radius: 10px; padding: 0.6rem 1rem; }
+    .cs-result-val { font-size: 1.05rem; font-weight: 800; color: var(--p-700); line-height: 1; }
+    .cs-result-lbl { font-size: 0.63rem; color: #888; margin-top: 0.2rem; }
     @media (max-width: 900px) {
       .cs-grid { grid-template-columns: 1fr; gap: 2rem; }
       .cs-right { flex-direction: row; flex-wrap: wrap; }
       .cs-img { flex: 1 1 100%; }
-      .cs-item { padding: 1.75rem; }
     }
 
     /* WEBSITES */
-    .web-bg { background: linear-gradient(160deg, #faf5ff 0%, #ede9fe 100%); }
+    .web-bg { background: var(--p-light); }
     .web-intro { text-align: center; max-width: 680px; margin: 0 auto 3rem; font-size: 0.95rem; color: #555; line-height: 1.8; }
     .web-intro strong { color: var(--p-700); }
     .web-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
     .web-card {
       background: white; border: 1.5px solid var(--p-200); border-radius: 18px;
-      overflow: hidden; transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s, border-color 0.35s;
+      overflow: hidden; transition: transform 0.3s, box-shadow 0.3s;
     }
-    .web-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(139,92,246,0.2); border-color: var(--p-400); }
-    /* browser chrome bar */
-    .web-chrome {
-      background: #f5f0ff; padding: 8px 12px;
-      display: flex; align-items: center; gap: 6px;
-      border-bottom: 1px solid var(--p-200);
-    }
-    .wc-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
-    .wc-dot:nth-child(1) { background: #ff6b6b; }
-    .wc-dot:nth-child(2) { background: #ffd93d; }
-    .wc-dot:nth-child(3) { background: #6bcb77; }
-    .wc-url {
-      font-size: 0.68rem; color: #aaa; font-family: 'Inter', monospace;
-      background: white; border: 1px solid var(--p-200);
-      padding: 2px 10px; border-radius: 4px; flex: 1;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    }
+    .web-card:hover { transform: translateY(-6px); box-shadow: 0 22px 50px rgba(139,92,246,0.13); }
     .web-preview { display: block; position: relative; aspect-ratio: 16/10; overflow: hidden; text-decoration: none; }
     .web-preview img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.5s ease; display: block; }
-    .web-card:hover .web-preview img { transform: scale(1.06); }
+    .web-card:hover .web-preview img { transform: scale(1.05); }
     .web-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(94,16,170,0.88) 0%, rgba(94,16,170,0.35) 55%, transparent 100%);
-      display: flex; align-items: flex-end; justify-content: center;
-      opacity: 0; transition: opacity 0.35s; padding-bottom: 1.2rem;
+      background: rgba(126,34,206,0.55);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.3s;
     }
-    .web-overlay span {
-      color: white; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.06em;
-      background: rgba(255,255,255,0.18); padding: 0.4rem 1.3rem;
-      border-radius: 20px; border: 1px solid rgba(255,255,255,0.35);
-      transform: translateY(10px); transition: transform 0.35s;
-    }
+    .web-overlay span { color: white; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.04em; }
     .web-card:hover .web-overlay { opacity: 1; }
-    .web-card:hover .web-overlay span { transform: translateY(0); }
     .web-info { padding: 1.1rem 1.3rem 1.3rem; }
-    .web-card-name { font-size: 0.98rem; font-weight: 700; color: var(--text); margin-bottom: 0.2rem; font-family: 'Syne', sans-serif; }
+    .web-card-name { font-size: 0.98rem; font-weight: 700; color: var(--text); margin-bottom: 0.2rem; }
     .web-card-loc { font-size: 0.75rem; color: #999; margin-bottom: 0.6rem; }
     .web-link { font-size: 0.75rem; color: var(--p-600); font-weight: 500; text-decoration: none; }
     .web-link:hover { text-decoration: underline; }
@@ -485,19 +360,19 @@
     <p class="hero-bio">SEO professional with 4+ years of experience driving organic growth across finance, affiliate, and multilingual global markets through content strategy, technical SEO, and scalable search systems.</p>
     <div class="hero-metrics">
       <div>
-        <div class="hero-metric-val" id="m-years">4+</div>
+        <div class="hero-metric-val">4+</div>
         <div class="hero-metric-lbl">Years Experience</div>
       </div>
       <div>
-        <div class="hero-metric-val" id="m-traffic">1M+</div>
+        <div class="hero-metric-val">1M+</div>
         <div class="hero-metric-lbl">Monthly Traffic</div>
       </div>
       <div>
-        <div class="hero-metric-val" id="m-sites">15+</div>
+        <div class="hero-metric-val">15+</div>
         <div class="hero-metric-lbl">Websites Built</div>
       </div>
       <div>
-        <div class="hero-metric-val" id="m-industries">6</div>
+        <div class="hero-metric-val">6</div>
         <div class="hero-metric-lbl">Industries</div>
       </div>
     </div>
@@ -520,7 +395,7 @@
 
       <div class="about-photo-wrap fade">
         <div class="about-photo">
-          <img src="ảnh nền.jpg" alt="Janny Vũ — SEO Specialist & Organic Growth Strategist">
+          <img src="photo.png" alt="Janny Vũ — SEO Specialist & Organic Growth Strategist">
         </div>
       </div>
 
@@ -555,108 +430,83 @@
       <div class="sec-num">02</div>
       <h2 class="sec-title">What I've Done</h2>
     </div>
-    <div class="tl-cards">
+    <div class="timeline">
 
-      <div class="tl-card fade">
-        <div class="tl-num">01</div>
-        <div class="tl-body">
-          <div class="tl-meta">
-            <span class="tl-date">Dec 2025 — Present</span>
-            <span class="tl-badge">Current</span>
-          </div>
-          <div class="tl-role">SEO Team Lead</div>
-          <div class="tl-co">WeCopyTrade</div>
-          <ul class="tl-list">
-            <li>Leading SEO strategy and execution for multiple international markets</li>
-            <li>Managing and mentoring SEO team members to ensure project quality and performance</li>
-            <li>Building AI-driven processes for content research, workflow optimization, and task management</li>
-            <li>Analyzing data from Google Search Console, GA4, Ahrefs, and other SEO tools</li>
-            <li>Supporting business growth through scalable and long-term SEO planning</li>
-          </ul>
-        </div>
+      <div class="tl-item fade">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Dec 2025 — Present</div>
+        <div class="tl-role">SEO Team Lead</div>
+        <div class="tl-co">WeCopyTrade</div>
+        <ul class="tl-list">
+          <li>Leading SEO strategy and execution for multiple international markets</li>
+          <li>Managing and mentoring SEO team members to ensure project quality and performance</li>
+          <li>Building AI-driven processes for content research, workflow optimization, and task management</li>
+          <li>Analyzing data from Google Search Console, GA4, Ahrefs, and other SEO tools</li>
+          <li>Supporting business growth through scalable and long-term SEO planning</li>
+        </ul>
       </div>
 
-      <div class="tl-card fade">
-        <div class="tl-num">02</div>
-        <div class="tl-body">
-          <div class="tl-meta">
-            <span class="tl-date">Aug 2025 — Dec 2025</span>
-          </div>
-          <div class="tl-role">SEO Specialist</div>
-          <div class="tl-co">WeCopyTrade</div>
-          <ul class="tl-list">
-            <li>Managed and coordinated with SEO agencies for multiple projects and campaigns</li>
-            <li>Monitored SEO performance, traffic growth, and campaign results</li>
-            <li>Evaluated and selected local agencies by analyzing proposals, strategies, and expected outcomes</li>
-          </ul>
-        </div>
+      <div class="tl-item fade">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Aug 2025 — Dec 2025</div>
+        <div class="tl-role">SEO Specialist</div>
+        <div class="tl-co">WeCopyTrade</div>
+        <ul class="tl-list">
+          <li>Managed and coordinated with SEO agencies for multiple projects and campaigns</li>
+          <li>Monitored SEO performance, traffic growth, and campaign results</li>
+          <li>Evaluated and selected local agencies by analyzing proposals, strategies, and expected outcomes</li>
+        </ul>
       </div>
 
-      <div class="tl-card fade">
-        <div class="tl-num">03</div>
-        <div class="tl-body">
-          <div class="tl-meta">
-            <span class="tl-date">June 2024 — Aug 2025</span>
-          </div>
-          <div class="tl-role">SEO Specialist</div>
-          <div class="tl-co">Detailers Movement International</div>
-          <ul class="tl-list">
-            <li>Managed SEO for multiple US-based car detailing clients</li>
-            <li>Led Love's Auto Detail to 13.4K clicks and 1.06M impressions in 16 months</li>
-            <li>Built Wax Masters Detailing from zero visibility to competitive local rankings</li>
-          </ul>
-        </div>
+      <div class="tl-item fade">
+        <div class="tl-dot"></div>
+        <div class="tl-date">June 2024 — Aug 2025</div>
+        <div class="tl-role">SEO Specialist</div>
+        <div class="tl-co">Detailers Movement International</div>
+        <ul class="tl-list">
+          <li>Managed SEO for multiple US-based car detailing clients</li>
+          <li>Led Love's Auto Detail to 13.4K clicks and 1.06M impressions in 16 months</li>
+          <li>Built Wax Masters Detailing from zero visibility to competitive local rankings</li>
+        </ul>
       </div>
 
-      <div class="tl-card fade">
-        <div class="tl-num">04</div>
-        <div class="tl-body">
-          <div class="tl-meta">
-            <span class="tl-date">June 2023 — May 2024</span>
-          </div>
-          <div class="tl-role">SEO - Marketing Executive</div>
-          <div class="tl-co">Thami Shipping &amp; Airfreight Corp.</div>
-          <ul class="tl-list">
-            <li>Planned and executed all SEO onpage tasks for Thamico website</li>
-            <li>Achieved top keyword rankings driving significant traffic to the site</li>
-            <li>Created design assets and company introduction videos for sales teams</li>
-          </ul>
-        </div>
+      <div class="tl-item fade">
+        <div class="tl-dot"></div>
+        <div class="tl-date">June 2023 — May 2024</div>
+        <div class="tl-role">SEO - Marketing Executive</div>
+        <div class="tl-co">Thami Shipping & Airfreight Corp.</div>
+        <ul class="tl-list">
+          <li>Planned and executed all SEO onpage tasks for Thamico website</li>
+          <li>Achieved top keyword rankings driving significant traffic to the site</li>
+          <li>Created design assets and company introduction videos for sales teams</li>
+        </ul>
       </div>
 
-      <div class="tl-card fade">
-        <div class="tl-num">05</div>
-        <div class="tl-body">
-          <div class="tl-meta">
-            <span class="tl-date">Apr 2022 — May 2023</span>
-          </div>
-          <div class="tl-role">SEO Executive</div>
-          <div class="tl-co">Interate Corp.</div>
-          <ul class="tl-list">
-            <li>Worked on multiple affiliate and SEO-driven content projects across different niches</li>
-            <li>Managed SEO optimization, content planning, and organic growth strategies for affiliate websites</li>
-            <li>Increased Get Freebies Today organic traffic by 600%, generating 2,000+ leads and over $10K in revenue</li>
-            <li>Supported keyword research, content structure optimization, and off-page SEO activities</li>
-          </ul>
-        </div>
+      <div class="tl-item fade">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Apr 2022 — May 2023</div>
+        <div class="tl-role">SEO Executive</div>
+        <div class="tl-co">Interate Corp.</div>
+        <ul class="tl-list">
+          <li>Worked on multiple affiliate and SEO-driven content projects across different niches</li>
+          <li>Managed SEO optimization, content planning, and organic growth strategies for affiliate websites</li>
+          <li>Increased Get Freebies Today organic traffic by 600%, generating 2,000+ leads and over $10K in revenue</li>
+          <li>Supported keyword research, content structure optimization, and off-page SEO activities</li>
+        </ul>
       </div>
 
-      <div class="tl-card fade">
-        <div class="tl-num">06</div>
-        <div class="tl-body">
-          <div class="tl-meta">
-            <span class="tl-date">Dec 2021 — Feb 2022</span>
-          </div>
-          <div class="tl-role">SEO Off-page Collaborator</div>
-          <div class="tl-co">Astronet Media</div>
-          <ul class="tl-list">
-            <li>Executed off-page SEO strategies focused on backlink acquisition and website authority growth</li>
-            <li>Researched and identified relevant websites for backlink placement and guest post opportunities</li>
-            <li>Conducted outreach campaigns and communicated directly with niche website owners for collaborations</li>
-            <li>Negotiated pricing and partnership terms for guest posts and sponsored backlinks</li>
-            <li>Supported authority-building campaigns for large-scale content websites, including Health Canal</li>
-          </ul>
-        </div>
+      <div class="tl-item fade">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Dec 2021 — Feb 2022</div>
+        <div class="tl-role">SEO Off-page Collaborator</div>
+        <div class="tl-co">Astronet Media</div>
+        <ul class="tl-list">
+          <li>Executed off-page SEO strategies focused on backlink acquisition and website authority growth</li>
+          <li>Researched and identified relevant websites for backlink placement and guest post opportunities</li>
+          <li>Conducted outreach campaigns and communicated directly with niche website owners for collaborations</li>
+          <li>Negotiated pricing and partnership terms for guest posts and sponsored backlinks</li>
+          <li>Supported authority-building campaigns for large-scale content websites, including Health Canal</li>
+        </ul>
       </div>
 
     </div>
@@ -871,7 +721,6 @@
     <div class="web-grid fade">
 
       <div class="web-card">
-        <div class="web-chrome"><span class="wc-dot"></span><span class="wc-dot"></span><span class="wc-dot"></span><span class="wc-url">tailoredautosalon.com</span></div>
         <a href="https://tailoredautosalon.com/" target="_blank" rel="noopener" class="web-preview">
           <img src="https://image.thum.io/get/width/1200/crop/800/https://tailoredautosalon.com/" alt="Tailored Auto Salon" loading="lazy">
           <div class="web-overlay"><span>Visit Site ↗</span></div>
@@ -884,7 +733,6 @@
       </div>
 
       <div class="web-card">
-        <div class="web-chrome"><span class="wc-dot"></span><span class="wc-dot"></span><span class="wc-dot"></span><span class="wc-url">radautodetailing.com</span></div>
         <a href="https://radautodetailing.com/" target="_blank" rel="noopener" class="web-preview">
           <img src="https://image.thum.io/get/width/1200/crop/800/https://radautodetailing.com/" alt="RAD Auto Detailing" loading="lazy">
           <div class="web-overlay"><span>Visit Site ↗</span></div>
@@ -897,7 +745,6 @@
       </div>
 
       <div class="web-card">
-        <div class="web-chrome"><span class="wc-dot"></span><span class="wc-dot"></span><span class="wc-dot"></span><span class="wc-url">slickmds.com</span></div>
         <a href="https://slickmds.com/" target="_blank" rel="noopener" class="web-preview">
           <img src="https://image.thum.io/get/width/1200/crop/800/https://slickmds.com/" alt="Slick Mobile Detail" loading="lazy">
           <div class="web-overlay"><span>Visit Site ↗</span></div>
@@ -910,7 +757,6 @@
       </div>
 
       <div class="web-card">
-        <div class="web-chrome"><span class="wc-dot"></span><span class="wc-dot"></span><span class="wc-dot"></span><span class="wc-url">waynesvillemobiledetailing.com</span></div>
         <a href="https://waynesvillemobiledetailing.com/" target="_blank" rel="noopener" class="web-preview">
           <img src="https://image.thum.io/get/width/1200/crop/800/https://waynesvillemobiledetailing.com/" alt="Waynesville Mobile Detailing" loading="lazy">
           <div class="web-overlay"><span>Visit Site ↗</span></div>
@@ -924,7 +770,6 @@
 
 
       <div class="web-card">
-        <div class="web-chrome"><span class="wc-dot"></span><span class="wc-dot"></span><span class="wc-dot"></span><span class="wc-url">kgown.com</span></div>
         <a href="https://www.kgown.com/" target="_blank" rel="noopener" class="web-preview">
           <img src="https://image.thum.io/get/width/1200/crop/800/https://www.kgown.com/" alt="K Gown" loading="lazy">
           <div class="web-overlay"><span>Visit Site ↗</span></div>
@@ -937,7 +782,6 @@
       </div>
 
       <div class="web-card">
-        <div class="web-chrome"><span class="wc-dot"></span><span class="wc-dot"></span><span class="wc-dot"></span><span class="wc-url">kenwoodpc.com</span></div>
         <a href="https://www.kenwoodpc.com/" target="_blank" rel="noopener" class="web-preview">
           <img src="https://image.thum.io/get/width/1200/crop/800/https://www.kenwoodpc.com/" alt="Kenwood CPA" loading="lazy">
           <div class="web-overlay"><span>Visit Site ↗</span></div>
@@ -978,78 +822,10 @@
 </footer>
 
 <script>
-  // Scroll fade-in observer
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
   }, { threshold: 0.12 });
   document.querySelectorAll('.fade').forEach(el => obs.observe(el));
-
-  // Hero metric counter animation
-  function countUp(el, target, suffix, duration) {
-    if (!el) return;
-    const start = performance.now();
-    const update = (now) => {
-      const t = Math.min((now - start) / duration, 1);
-      const ease = 1 - Math.pow(1 - t, 3);
-      el.textContent = Math.floor(ease * target) + suffix;
-      if (t < 1) requestAnimationFrame(update);
-    };
-    requestAnimationFrame(update);
-  }
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      countUp(document.getElementById('m-years'), 4, '+', 1200);
-      countUp(document.getElementById('m-traffic'), 1, 'M+', 1400);
-      countUp(document.getElementById('m-sites'), 15, '+', 1600);
-      countUp(document.getElementById('m-industries'), 6, '', 1000);
-    }, 500);
-  });
-
-  // Nav active section highlight
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  const onScroll = () => {
-    let current = '';
-    sections.forEach(s => { if (scrollY >= s.offsetTop - 120) current = s.id; });
-    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-
-  // Universe background — projects section
-  (function() {
-    const sec = document.getElementById('projects');
-    if (!sec) return;
-    // Nebula blobs
-    const blobs = [
-      { l:'-6%',  t:'-10%', w:'520px', h:'420px', c:'rgba(147,51,234,0.28)',  d:'18s', dl:'0s'   },
-      { r:'-6%',  t:'30%',  w:'440px', h:'380px', c:'rgba(79,70,229,0.22)',   d:'23s', dl:'-9s'  },
-      { l:'28%',  b:'5%',   w:'400px', h:'320px', c:'rgba(236,72,153,0.18)',  d:'17s', dl:'-5s'  },
-      { l:'55%',  t:'12%',  w:'320px', h:'280px', c:'rgba(6,182,212,0.16)',   d:'21s', dl:'-12s' },
-    ];
-    blobs.forEach(b => {
-      const el = document.createElement('div');
-      el.style.cssText = `position:absolute;${b.r?'right:'+b.r:'left:'+b.l};${b.b?'bottom:'+b.b:'top:'+b.t};width:${b.w};height:${b.h};background:radial-gradient(ellipse,${b.c} 0%,transparent 70%);border-radius:50%;filter:blur(65px);pointer-events:none;z-index:0;animation:nebulaFloat ${b.d} ease-in-out infinite alternate;animation-delay:${b.dl};`;
-      sec.appendChild(el);
-    });
-    // Stars
-    for (let i = 0; i < 130; i++) {
-      const s = document.createElement('div');
-      const sz = (Math.random() * 2 + 0.5).toFixed(1);
-      s.style.cssText = `position:absolute;left:${(Math.random()*100).toFixed(1)}%;top:${(Math.random()*100).toFixed(1)}%;width:${sz}px;height:${sz}px;background:white;border-radius:50%;pointer-events:none;z-index:0;opacity:0;animation:twinkle ${(Math.random()*3+2).toFixed(1)}s ease-in-out infinite alternate;animation-delay:-${(Math.random()*5).toFixed(1)}s;`;
-      sec.appendChild(s);
-    }
-    // A few large glowing "planet" dots
-    const planets = [
-      { l:'8%',  t:'22%', sz:'4px', color:'rgba(192,132,252,0.9)', glow:'0 0 12px 3px rgba(192,132,252,0.6)' },
-      { l:'78%', t:'65%', sz:'5px', color:'rgba(6,182,212,0.9)',   glow:'0 0 14px 4px rgba(6,182,212,0.5)'  },
-      { l:'45%', t:'80%', sz:'3px', color:'rgba(244,114,182,0.9)', glow:'0 0 10px 2px rgba(244,114,182,0.5)'},
-    ];
-    planets.forEach(p => {
-      const el = document.createElement('div');
-      el.style.cssText = `position:absolute;left:${p.l};top:${p.t};width:${p.sz};height:${p.sz};background:${p.color};border-radius:50%;box-shadow:${p.glow};pointer-events:none;z-index:0;animation:twinkle 4s ease-in-out infinite alternate;`;
-      sec.appendChild(el);
-    });
-  })();
 </script>
 </body>
 </html>
